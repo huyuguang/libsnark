@@ -10,6 +10,23 @@ if(${CURVE} STREQUAL "BN128")
     ate-pairing/src/zm.cpp
     ate-pairing/src/zm2.cpp
   )
+
+  install(
+    TARGETS
+    zm
+
+    DESTINATION lib
+  )
+
+  install(
+    DIRECTORY "ate-pairing/include/" DESTINATION "include/ate-pariring"
+    FILES_MATCHING
+    PATTERN "*.hpp"
+    PATTERN "*.h"
+    PATTERN "logs" EXCLUDE
+    PATTERN "tests" EXCLUDE
+    PATTERN "tutorials" EXCLUDE
+  )
 endif()
 
 if("${WITH_SUPERCOP}")
@@ -40,3 +57,13 @@ if(NOT "${USE_LINKED_LIBRARIES}")
   OPTION(IS_LIBFQFFT_PARENT OFF)
   add_subdirectory(libfqfft)
 endif()
+
+install(
+  DIRECTORY "libfqfft/libfqfft/" DESTINATION "include/libfqfft"
+  FILES_MATCHING
+  PATTERN "*.hpp"
+  PATTERN "*.tcc"
+  PATTERN "logs" EXCLUDE
+  PATTERN "tests" EXCLUDE
+  PATTERN "tutorials" EXCLUDE
+)
