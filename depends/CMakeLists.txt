@@ -19,7 +19,7 @@ if(${CURVE} STREQUAL "BN128")
   )
 
   install(
-    DIRECTORY "ate-pairing/include/" DESTINATION "include/ate-pariring"
+    DIRECTORY "ate-pairing/include/" DESTINATION "include/depends/ate-pairing/include"
     FILES_MATCHING
     PATTERN "*.hpp"
     PATTERN "*.h"
