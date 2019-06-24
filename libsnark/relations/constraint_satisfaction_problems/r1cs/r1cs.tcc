@@ -224,7 +224,9 @@ void r1cs_constraint_system<FieldT>::swap_AB_if_beneficial()
     }
     else
     {
+#ifdef DEBUG
         libff::print_indent(); printf("Swap is not beneficial, not performing\n");
+#endif
     }
 
     libff::leave_block("Call to r1cs_constraint_system::swap_AB_if_beneficial");
