@@ -380,10 +380,10 @@ r1cs_gg_ppzksnark_keypair<ppT> r1cs_gg_ppzksnark_generator(const r1cs_gg_ppzksna
                                                                                std::move(H_query),
                                                                                std::move(L_query),
                                                                                std::move(r1cs_copy));
-
+#ifdef DEBUG
     pk.print_size();
     vk.print_size();
-
+#endif
     return r1cs_gg_ppzksnark_keypair<ppT>(std::move(pk), std::move(vk));
 }
 
@@ -499,8 +499,9 @@ r1cs_gg_ppzksnark_proof<ppT> r1cs_gg_ppzksnark_prover(const r1cs_gg_ppzksnark_pr
     libff::leave_block("Call to r1cs_gg_ppzksnark_prover");
 
     r1cs_gg_ppzksnark_proof<ppT> proof = r1cs_gg_ppzksnark_proof<ppT>(std::move(g1_A), std::move(g2_B), std::move(g1_C));
+#ifdef DEBUG
     proof.print_size();
-
+#endif
     return proof;
 }
 

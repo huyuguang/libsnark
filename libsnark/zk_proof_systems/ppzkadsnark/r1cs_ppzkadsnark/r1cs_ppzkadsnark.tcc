@@ -632,10 +632,10 @@ r1cs_ppzkadsnark_keypair<ppT> r1cs_ppzkadsnark_generator(const r1cs_ppzkadsnark_
                                                                              std::move(K_query),
                                                                              std::move(rA_i_Z_g1),
                                                                              std::move(cs_copy));
-
+#ifdef DEBUG
     pk.print_size();
     vk.print_size();
-
+#endif
     return r1cs_ppzkadsnark_keypair<ppT>(std::move(pk), std::move(vk));
 }
 
@@ -804,8 +804,9 @@ r1cs_ppzkadsnark_proof<ppT> r1cs_ppzkadsnark_prover(const r1cs_ppzkadsnark_provi
                                                                     std::move(g_K),
                                                                     std::move(g_Ain),
                                                                     std::move(muA));
+#ifdef DEBUG
     proof.print_size();
-
+#endif
     return proof;
 }
 
