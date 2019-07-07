@@ -258,7 +258,7 @@ void test_Frobenius(const std::string &annotation)
         x.generate_r1cs_witness(x_val);
         x_frob.evaluate();
         const FpExtT res = x_frob.get_element();
-        assert(res == x_val.Frobenius_map(i));
+        assert(res == x_val.Frobenius_map((ssize_t)i));
         assert(pb.is_satisfied());
     }
 

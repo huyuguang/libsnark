@@ -646,7 +646,7 @@ public:
         shifted_out_bits.resize(logw);
         for (size_t i = 0; i < logw; ++i)
         {
-            shifted_out_bits[i].allocate(pb, 1ul<<i, FMT(this->annotation_prefix, " shifted_out_bits_%zu", i));
+            shifted_out_bits[i].allocate(pb, ((size_t)1)<<i, FMT(this->annotation_prefix, " shifted_out_bits_%zu", i));
         }
 
         is_oversize_shift.allocate(pb, FMT(this->annotation_prefix, " is_oversize_shift"));

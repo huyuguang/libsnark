@@ -11,7 +11,7 @@
 
 #ifndef SHA256_COMPONENTS_HPP_
 #define SHA256_COMPONENTS_HPP_
-
+#include <msvc_hack.h>
 #include <libsnark/gadgetlib1/gadgets/basic_gadgets.hpp>
 #include <libsnark/gadgetlib1/gadgets/hashes/hash_io.hpp>
 #include <libsnark/gadgetlib1/gadgets/hashes/sha256/sha256_aux.hpp>
@@ -78,7 +78,7 @@ public:
     pb_linear_combination_array<FieldT> g;
     pb_linear_combination_array<FieldT> h;
     pb_variable<FieldT> W;
-    long K;
+    ssize_t K;
     pb_linear_combination_array<FieldT> new_a;
     pb_linear_combination_array<FieldT> new_e;
 
@@ -92,7 +92,7 @@ public:
                                  const pb_linear_combination_array<FieldT> &g,
                                  const pb_linear_combination_array<FieldT> &h,
                                  const pb_variable<FieldT> &W,
-                                 const long &K,
+                                 const ssize_t &K,
                                  const pb_linear_combination_array<FieldT> &new_a,
                                  const pb_linear_combination_array<FieldT> &new_e,
                                  const std::string &annotation_prefix);

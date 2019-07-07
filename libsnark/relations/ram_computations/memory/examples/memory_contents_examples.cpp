@@ -24,7 +24,7 @@ memory_contents block_memory_contents(const size_t num_addresses,
                                       const size_t block1_size,
                                       const size_t block2_size)
 {
-    const size_t max_unit = 1ul<<value_size;
+    const size_t max_unit = ((size_t)1)<<value_size;
 
     memory_contents result;
     for (size_t i = 0; i < block1_size; ++i)
@@ -44,7 +44,7 @@ memory_contents random_memory_contents(const size_t num_addresses,
                                        const size_t value_size,
                                        const size_t num_filled)
 {
-    const size_t max_unit = 1ul<<value_size;
+    const size_t max_unit = ((size_t)1)<<value_size;
 
     std::set<size_t> unfilled;
     for (size_t i = 0; i < num_addresses; ++i)

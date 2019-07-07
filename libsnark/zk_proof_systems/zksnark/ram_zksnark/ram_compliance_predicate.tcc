@@ -512,7 +512,7 @@ void ram_compliance_predicate_handler<ramT>::generate_r1cs_witness(const std::ve
                                                                    const std::shared_ptr<r1cs_pcd_local_data<FieldT> > &local_data_value)
 {
     const std::shared_ptr<ram_pcd_local_data<ramT> > ram_local_data_value = std::dynamic_pointer_cast<ram_pcd_local_data<ramT> >(local_data_value);
-    assert(ram_local_data_value->mem.num_addresses == 1ul << addr_size); // check value_size and num_addresses too
+    assert(ram_local_data_value->mem.num_addresses == (size_t)1 << addr_size); // check value_size and num_addresses too
 
     base_handler::generate_r1cs_witness(incoming_message_values, local_data_value);
     cur->generate_r1cs_witness_from_packed();
@@ -657,7 +657,7 @@ std::shared_ptr<r1cs_pcd_message<ram_base_field<ramT> > > ram_compliance_predica
                                                                                                                         const ram_boot_trace<ramT> &primary_input)
 {
     libff::enter_block("Call to ram_compliance_predicate_handler::get_base_case_message");
-    const size_t num_addresses = 1ul << ap.address_size();
+    const size_t num_addresses = (size_t)1 << ap.address_size();
     const size_t value_size = ap.value_size();
     delegated_ra_memory<CRH_with_bit_out_gadget<FieldT> > mem(num_addresses, value_size, primary_input.as_memory_contents());
 
@@ -687,7 +687,7 @@ std::shared_ptr<r1cs_pcd_message<ram_base_field<ramT> > > ram_compliance_predica
                                                                                                                      const size_t time_bound)
 {
     libff::enter_block("Call to ram_compliance_predicate_handler::get_final_case_msg");
-    const size_t num_addresses = 1ul << ap.address_size();
+    const size_t num_addresses = (size_t)1 << ap.address_size();
     const size_t value_size = ap.value_size();
     delegated_ra_memory<CRH_with_bit_out_gadget<FieldT> > mem(num_addresses, value_size, primary_input.as_memory_contents());
 

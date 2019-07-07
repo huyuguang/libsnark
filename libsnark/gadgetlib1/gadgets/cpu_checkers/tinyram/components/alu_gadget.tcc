@@ -19,7 +19,7 @@ namespace libsnark {
 template<typename FieldT>
 void ALU_gadget<FieldT>::generate_r1cs_constraints()
 {
-    for (size_t i = 0; i < 1ul<<this->pb.ap.opcode_width(); ++i)
+    for (size_t i = 0; i < ((size_t)1)<<this->pb.ap.opcode_width(); ++i)
     {
         if (components[i])
         {
@@ -31,7 +31,7 @@ void ALU_gadget<FieldT>::generate_r1cs_constraints()
 template<typename FieldT>
 void ALU_gadget<FieldT>::generate_r1cs_witness()
 {
-    for (size_t i = 0; i < 1ul<<this->pb.ap.opcode_width(); ++i)
+    for (size_t i = 0; i < ((size_t)1)<<this->pb.ap.opcode_width(); ++i)
     {
         if (components[i])
         {

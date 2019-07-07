@@ -54,8 +54,8 @@ void brute_force_arithmetic_gadget(const size_t w,
     tinyram_protoboard<FieldT> pb(ap, P.size(), 0, 10);
 
     pb_variable_array<FieldT> opcode_indicators;
-    opcode_indicators.allocate(pb, 1ul<<ap.opcode_width(), "opcode_indicators");
-    for (size_t i = 0; i < 1ul<<ap.opcode_width(); ++i)
+    opcode_indicators.allocate(pb, ((size_t)1)<<ap.opcode_width(), "opcode_indicators");
+    for (size_t i = 0; i < ((size_t)1)<<ap.opcode_width(); ++i)
     {
         pb.val(opcode_indicators[i]) = (i == opcode ? FieldT::one() : FieldT::zero());
     }
@@ -378,8 +378,8 @@ void test_ALU_not_gadget(const size_t w)
                                                                   ALU_not_gadget<FieldT>* {
                                                                       return new ALU_not_gadget<FieldT>(pb, opcode_indicators,desval, arg1val, arg2val, flag, result, result_flag, "ALU_not_gadget");
                                                                   },
-                                                                  [w] (size_t des, bool f, size_t x, size_t y) -> size_t { return (1ul<<w)-1-y; },
-                                                                  [w] (size_t des, bool f, size_t x, size_t y) -> bool { return ((1ul<<w)-1-y) == 0; });
+                                                                  [w] (size_t des, bool f, size_t x, size_t y) -> size_t { return (((size_t)1)<<w)-1-y; },
+                                                                  [w] (size_t des, bool f, size_t x, size_t y) -> bool { return ((((size_t)1)<<w)-1-y) == 0; });
     libff::print_time("not tests successful");
 }
 
@@ -427,8 +427,8 @@ void test_ALU_add_gadget(const size_t w)
                                                                   ALU_add_gadget<FieldT>* {
                                                                       return new ALU_add_gadget<FieldT>(pb, opcode_indicators, desval, arg1val, arg2val, flag, result, result_flag, "ALU_add_gadget");
                                                                   },
-                                                                  [w] (size_t des, bool f, size_t x, size_t y) -> size_t { return (x+y) % (1ul<<w); },
-                                                                  [w] (size_t des, bool f, size_t x, size_t y) -> bool { return (x+y) >= (1ul<<w); });
+                                                                  [w] (size_t des, bool f, size_t x, size_t y) -> size_t { return (x+y) % (((size_t)1)<<w); },
+                                                                  [w] (size_t des, bool f, size_t x, size_t y) -> bool { return (x+y) >= (((size_t)1)<<w); });
     libff::print_time("add tests successful");
 }
 
@@ -499,11 +499,11 @@ void test_ALU_sub_gadget(const size_t w)
                                                                       return new ALU_sub_gadget<FieldT>(pb, opcode_indicators, desval, arg1val, arg2val, flag, result, result_flag, "ALU_sub_gadget");
                                                                   },
                                                                   [w] (size_t des, bool f, size_t x, size_t y) -> size_t {
-                                                                      const size_t unsigned_result = ((1ul<<w) + x - y) % (1ul<<w);
+                                                                      const size_t unsigned_result = ((((size_t)1)<<w) + x - y) % (((size_t)1)<<w);
                                                                       return unsigned_result;
                                                                   },
                                                                   [w] (size_t des, bool f, size_t x, size_t y) -> bool {
-                                                                      const size_t msb = ((1ul<<w) + x - y) >> w;
+                                                                      const size_t msb = ((((size_t)1)<<w) + x - y) >> w;
                                                                       return (msb == 0);
                                                                   });
     libff::print_time("sub tests successful");
@@ -942,7 +942,7 @@ void test_ALU_mull_gadget(const size_t w)
                                                                                                           umulh_result, umulh_flag,
                                                                                                           "ALU_umul_gadget");
                                                                    },
-                                                                   [w] (size_t des, bool f, size_t x, size_t y) -> size_t { return (x*y) % (1ul<<w); },
+                                                                   [w] (size_t des, bool f, size_t x, size_t y) -> size_t { return (x*y) % (((size_t)1)<<w); },
                                                                    [w] (size_t des, bool f, size_t x, size_t y) -> bool {
                                                                        return ((x*y) >> w) != 0;
                                                                    });
@@ -1028,13 +1028,13 @@ void ALU_smul_gadget<FieldT>::generate_r1cs_constraints()
     this->pb.add_r1cs_constraint(
         r1cs_constraint<FieldT>(
             { is_top_full_aux },
-            { top, ONE * (1l-(1ul<<(this->pb.ap.w+1))) },
+            { top, ONE * (((ssize_t)1) -(((size_t)1)<<(this->pb.ap.w+1))) },
             { ONE, is_top_full * (-1) }),
         FMT(this->annotation_prefix, " I*X=1-R (is_top_full)"));
     this->pb.add_r1cs_constraint(
         r1cs_constraint<FieldT>(
             { is_top_full },
-            { top, ONE * (1l-(1ul<<(this->pb.ap.w+1))) },
+            { top, ONE * (((ssize_t)1) -(((size_t)1)<<(this->pb.ap.w+1))) },
             { ONE * 0 }),
         FMT(this->annotation_prefix, " R*X=0 (is_top_full)"));
 
@@ -1080,7 +1080,7 @@ void ALU_smul_gadget<FieldT>::generate_r1cs_witness()
         this->pb.val(is_top_empty_aux) = this->pb.val(top).inverse();
     }
 
-    if (topval == ((1ul<<(this->pb.ap.w+1))-1))
+    if (topval == ((((size_t)1)<<(this->pb.ap.w+1))-1))
     {
         this->pb.val(is_top_full) = FieldT::one();
         this->pb.val(is_top_full_aux) = FieldT::zero();
@@ -1088,7 +1088,7 @@ void ALU_smul_gadget<FieldT>::generate_r1cs_witness()
     else
     {
         this->pb.val(is_top_full) = FieldT::zero();
-        this->pb.val(is_top_full_aux) = (this->pb.val(top)-FieldT((1ul<<(this->pb.ap.w+1))-1)).inverse();
+        this->pb.val(is_top_full_aux) = (this->pb.val(top)-FieldT((((size_t)1)<<(this->pb.ap.w+1))-1)).inverse();
     }
 
     /* smulh_flag = 1 - (is_top_full + is_top_empty) */
@@ -1120,7 +1120,7 @@ void test_ALU_smulh_gadget(const size_t w)
                                                                    },
                                                                    [w] (size_t des, bool f, size_t x, size_t y) -> bool {
                                                                        const int res = libff::from_twos_complement(x, w) * libff::from_twos_complement(y, w);
-                                                                       const int truncated_res = libff::from_twos_complement(libff::to_twos_complement(res, 2*w) & ((1ul<<w)-1), w);
+                                                                       const int truncated_res = libff::from_twos_complement(libff::to_twos_complement(res, 2*w) & ((((size_t)1)<<w)-1), w);
                                                                        return (res != truncated_res);
                                                                    });
     libff::print_time("smulh tests successful");
@@ -1297,7 +1297,7 @@ void ALU_shr_shl_gadget<FieldT>::generate_r1cs_constraints()
     for (size_t i = 0; i < logw; ++i)
     {
         /* assert that shifted out part is bits */
-        for (size_t j = 0; j < 1ul<<i; ++j)
+        for (size_t j = 0; j < ((size_t)1)<<i; ++j)
         {
             generate_boolean_r1cs_constraint<FieldT>(this->pb, shifted_out_bits[i][j], FMT(this->annotation_prefix, " shifted_out_bits_%zu_%zu", i, j));
         }
@@ -1315,7 +1315,7 @@ void ALU_shr_shl_gadget<FieldT>::generate_r1cs_constraints()
         linear_combination<FieldT> a, b, c;
 
         a.add_term(barrel_right_internal[i+1], (FieldT(2)^(i+1)) - FieldT::one());
-        for (size_t j = 0; j < 1ul<<i; ++j)
+        for (size_t j = 0; j < ((size_t)1)<<i; ++j)
         {
             a.add_term(shifted_out_bits[i][j], (FieldT(2)^j));
         }
@@ -1489,7 +1489,7 @@ void test_ALU_shl_gadget(const size_t w)
                                                                                                                 "ALU_shr_shl_gadget");
                                                                       },
                                                                       [w] (size_t des, bool f, size_t x, size_t y) -> size_t {
-                                                                          return (x << y) & ((1ul<<w)-1);
+                                                                          return (x << y) & ((((size_t)1)<<w)-1);
                                                                       },
                                                                       [w] (size_t des, bool f, size_t x, size_t y) -> bool {
                                                                           return (x >> (w-1));

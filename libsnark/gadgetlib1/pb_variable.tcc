@@ -67,7 +67,7 @@ void pb_variable_array<FieldT>::fill_with_bits_of_field_element(protoboard<Field
 }
 
 template<typename FieldT>
-void pb_variable_array<FieldT>::fill_with_bits_of_ulong(protoboard<FieldT> &pb, const unsigned long i) const
+void pb_variable_array<FieldT>::fill_with_bits_of_ulong(protoboard<FieldT> &pb, const size_t i) const
 {
     this->fill_with_bits_of_field_element(pb, FieldT(i, true));
 }
@@ -233,7 +233,7 @@ void pb_linear_combination_array<FieldT>::fill_with_bits_of_field_element(protob
 }
 
 template<typename FieldT>
-void pb_linear_combination_array<FieldT>::fill_with_bits_of_ulong(protoboard<FieldT> &pb, const unsigned long i) const
+void pb_linear_combination_array<FieldT>::fill_with_bits_of_ulong(protoboard<FieldT> &pb, const size_t i) const
 {
     this->fill_with_bits_of_field_element(pb, FieldT(i));
 }

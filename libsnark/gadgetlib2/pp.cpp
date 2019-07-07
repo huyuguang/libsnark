@@ -16,7 +16,7 @@ namespace gadgetlib2 {
 
 PublicParams::PublicParams(const std::size_t log_p) : log_p(log_p) {}
 
-Fp PublicParams::getFp(long x) const {
+Fp PublicParams::getFp(ssize_t x) const {
     return Fp(x);
 }
 

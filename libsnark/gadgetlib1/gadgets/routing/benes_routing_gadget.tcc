@@ -37,7 +37,7 @@ benes_routing_gadget<FieldT>::benes_routing_gadget(protoboard<FieldT> &pb,
     num_subpackets(libff::div_ceil(packet_size, FieldT::capacity()))
 {
     assert(lines_to_unpack <= routing_input_bits.size());
-    assert(num_packets == 1ul<<libff::log2(num_packets));
+    assert(num_packets == ((size_t)1)<<libff::log2(num_packets));
     assert(routing_input_bits.size() == num_packets);
 
     neighbors = generate_benes_topology(num_packets);
@@ -194,7 +194,7 @@ template<typename FieldT>
 void test_benes_routing_gadget(const size_t num_packets, const size_t packet_size)
 {
     const size_t dimension = libff::log2(num_packets);
-    assert(num_packets == 1ul<<dimension);
+    assert(num_packets == ((size_t)1)<<dimension);
 
     printf("testing benes_routing_gadget by routing 2^%zu-entry vector of %zu bits (Fp fits all %zu bit integers)\n", dimension, packet_size, FieldT::capacity());
 

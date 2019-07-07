@@ -18,6 +18,7 @@
 
 #include <libff/common/profiling.hpp>
 #include <libff/common/utils.hpp>
+#include <msvc_hack.h>
 
 namespace libsnark {
 
@@ -66,14 +67,14 @@ merkle_tree<HashT>::merkle_tree(const size_t depth,
     assert(libff::log2(contents_as_vector.size()) <= depth);
     for (size_t address = 0; address < contents_as_vector.size(); ++address)
     {
-        const size_t idx = address + (1ul<<depth) - 1;
+        const size_t idx = address + (((size_t)1) <<depth) - 1;
         values[idx] = contents_as_vector[address];
         hashes[idx] = contents_as_vector[address];
         hashes[idx].resize(digest_size);
     }
 
-    size_t idx_begin = (1ul<<depth) - 1;
-    size_t idx_end = contents_as_vector.size() + ((1ul<<depth) - 1);
+    size_t idx_begin = (((size_t)1) <<depth) - 1;
+    size_t idx_end = contents_as_vector.size() + ((((size_t)1) <<depth) - 1);
 
     for (int layer = depth; layer > 0; --layer)
     {
@@ -100,13 +101,13 @@ merkle_tree<HashT>::merkle_tree(const size_t depth,
 
     if (!contents.empty())
     {
-        assert(contents.rbegin()->first < 1ul<<depth);
+        assert(contents.rbegin()->first < ((size_t)1) <<depth);
 
         for (auto it = contents.begin(); it != contents.end(); ++it)
         {
             const size_t address = it->first;
             const libff::bit_vector value = it->second;
-            const size_t idx = address + (1ul<<depth) - 1;
+            const size_t idx = address + (((size_t)1) <<depth) - 1;
 
             values[address] = value;
             hashes[idx] = value;
@@ -115,7 +116,7 @@ merkle_tree<HashT>::merkle_tree(const size_t depth,
 
         auto last_it = hashes.end();
 
-        for (int layer = depth; layer > 0; --layer)
+        for (ssize_t layer = depth; layer > 0; --layer)
         {
             auto next_last_it = hashes.begin();
 
@@ -167,14 +168,14 @@ void merkle_tree<HashT>::set_value(const size_t address,
                                    const libff::bit_vector &value)
 {
     assert(libff::log2(address) <= depth);
-    size_t idx = address + (1ul<<depth) - 1;
+    size_t idx = address + (((size_t)1) <<depth) - 1;
 
     assert(value.size() == value_size);
     values[address] = value;
     hashes[idx] = value;
     hashes[idx].resize(digest_size);
 
-    for (int layer = depth-1; layer >=0; --layer)
+    for (ssize_t layer = depth-1; layer >=0; --layer)
     {
         idx = (idx-1)/2;
 
@@ -201,7 +202,7 @@ typename HashT::merkle_authentication_path_type merkle_tree<HashT>::get_path(con
 {
     typename HashT::merkle_authentication_path_type result(depth);
     assert(libff::log2(address) <= depth);
-    size_t idx = address + (1ul<<depth) - 1;
+    size_t idx = address + (((size_t)1) <<depth) - 1;
 
     for (size_t layer = depth; layer > 0; --layer)
     {
@@ -209,7 +210,7 @@ typename HashT::merkle_authentication_path_type merkle_tree<HashT>::get_path(con
         auto it = hashes.find(sibling_idx);
         if (layer == depth)
         {
-            auto it2 = values.find(sibling_idx - ((1ul<<depth) - 1));
+            auto it2 = values.find(sibling_idx - ((((size_t)1) <<depth) - 1));
             result[layer-1] = (it2 == values.end() ? libff::bit_vector(value_size, false) : it2->second);
             result[layer-1].resize(digest_size);
         }
@@ -227,7 +228,7 @@ typename HashT::merkle_authentication_path_type merkle_tree<HashT>::get_path(con
 template<typename HashT>
 void merkle_tree<HashT>::dump() const
 {
-    for (size_t i = 0; i < 1ul<<depth; ++i)
+    for (size_t i = 0; i < ((size_t)1) <<depth; ++i)
     {
         auto it = values.find(i);
         printf("[%zu] -> ", i);

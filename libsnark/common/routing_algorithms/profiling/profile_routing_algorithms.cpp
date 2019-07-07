@@ -22,7 +22,7 @@ void profile_benes_algorithm(const size_t n)
 {
     printf("* Size: %zu\n", n);
 
-    assert(n == 1ul<<libff::log2(n));
+    assert(n == ((size_t)1) <<libff::log2(n));
 
     libff::enter_block("Generate permutation");
     integer_permutation permutation(n);
@@ -52,12 +52,12 @@ int main()
 {
     libff::start_profiling();
 
-    for (size_t n = 1ul<<10; n <= 1ul<<20; n <<= 1)
+    for (size_t n = ((size_t)1) <<10; n <= ((size_t)1) <<20; n <<= 1)
     {
         profile_benes_algorithm(n);
     }
 
-    for (size_t n = 1ul<<10; n <= 1ul<<20; n <<= 1)
+    for (size_t n = ((size_t)1) <<10; n <= ((size_t)1) <<20; n <<= 1)
     {
         profile_as_waksman_algorithm(n);
     }

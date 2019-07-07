@@ -23,7 +23,7 @@ fooram_architecture_params::fooram_architecture_params(const size_t w) : w(w)
 
 size_t fooram_architecture_params::num_addresses() const
 {
-    return 1ul<<w;
+    return ((size_t)1) <<w;
 }
 
 size_t fooram_architecture_params::address_size() const

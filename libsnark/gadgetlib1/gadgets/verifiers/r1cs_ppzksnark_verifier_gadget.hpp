@@ -18,6 +18,7 @@
 #ifndef R1CS_PPZKSNARK_VERIFIER_GADGET_HPP_
 #define R1CS_PPZKSNARK_VERIFIER_GADGET_HPP_
 
+#include <msvc_hack.h>
 #include <libsnark/gadgetlib1/gadgets/basic_gadgets.hpp>
 #include <libsnark/gadgetlib1/gadgets/curves/weierstrass_g1_gadget.hpp>
 #include <libsnark/gadgetlib1/gadgets/curves/weierstrass_g2_gadget.hpp>
@@ -90,7 +91,7 @@ public:
 
     // TODO: remove later, when g++ developers fix the bug.
 
-    __attribute__((noinline)) r1cs_ppzksnark_verification_key_variable(protoboard<FieldT> &pb,
+    __noinline__ r1cs_ppzksnark_verification_key_variable(protoboard<FieldT> &pb,
                                                                        const pb_variable_array<FieldT> &all_bits,
                                                                        const size_t input_size,
                                                                        const std::string &annotation_prefix);
@@ -98,7 +99,7 @@ public:
     void generate_r1cs_witness(const r1cs_ppzksnark_verification_key<other_curve<ppT> > &vk);
     void generate_r1cs_witness(const libff::bit_vector &vk_bits);
     libff::bit_vector get_bits() const;
-    static size_t __attribute__((noinline)) size_in_bits(const size_t input_size);
+    static size_t __noinline__ size_in_bits(const size_t input_size);
     static libff::bit_vector get_verification_key_bits(const r1cs_ppzksnark_verification_key<other_curve<ppT> > &r1cs_vk);
 };
 

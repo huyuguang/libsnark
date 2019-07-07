@@ -37,7 +37,7 @@ namespace gadgetlib2 {
  */
 class GadgetLibAdapter {
 public:
-    typedef unsigned long variable_index_t;
+    typedef size_t variable_index_t;
     typedef gadgetlib2::Fp Fp_elem_t;
     typedef ::std::pair<variable_index_t, Fp_elem_t> linear_term_t;
     typedef ::std::vector<linear_term_t> sparse_vec_t;

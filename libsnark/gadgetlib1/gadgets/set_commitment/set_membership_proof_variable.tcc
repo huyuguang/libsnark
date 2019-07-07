@@ -70,7 +70,7 @@ template<typename FieldT, typename HashT>
 r1cs_variable_assignment<FieldT> set_membership_proof_variable<FieldT, HashT>::as_r1cs_variable_assignment(const set_membership_proof &proof)
 {
     protoboard<FieldT> pb;
-    const size_t max_entries = (1ul << (proof.merkle_path.size()));
+    const size_t max_entries = ((size_t)1 << (proof.merkle_path.size()));
     set_membership_proof_variable<FieldT, HashT> proof_variable(pb, max_entries, "proof_variable");
     proof_variable.generate_r1cs_witness(proof);
 

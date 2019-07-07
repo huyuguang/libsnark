@@ -165,9 +165,9 @@ TEST(gadgetLib2,R1P_InnerProductGadget_Exhaustive) {
         for (size_t j = 0; j < 1u<<n; ++j) {
             size_t correct = 0;
             for (size_t k = 0; k < n; ++k) {
-                pb->val(A[k]) = i & (1u<<k) ? 1 : 0;
-                pb->val(B[k]) = j & (1u<<k) ? 1 : 0;
-                correct += (i & (1u<<k)) && (j & (1u<<k)) ? 1 : 0;
+                pb->val(A[k]) = i & ((size_t)1<<k) ? 1 : 0;
+                pb->val(B[k]) = j & ((size_t)1<<k) ? 1 : 0;
+                correct += (i & ((size_t)1<<k)) && (j & ((size_t)1<<k)) ? 1 : 0;
             }
             g->generateWitness();
             EXPECT_EQ(pb->val(result) , FElem(correct));
@@ -321,7 +321,7 @@ void packing_Gadget_R1P_ExhaustiveTest(ProtoboardPtr unpackingPB, ProtoboardPtr 
                                        GadgetPtr packingGadget, GadgetPtr unpackingGadget) {
     packingGadget->generateConstraints();
     unpackingGadget->generateConstraints();
-    for(int i = 0; i < 1l<<n; ++i) {
+    for(int i = 0; i < (1l<<n); ++i) {
         ::std::vector<int> bits(n);
         for(int j = 0; j < n; ++j) {
             bits[j] = i & 1u<<j ? 1 : 0 ;
@@ -359,7 +359,7 @@ void packing_Gadget_R1P_ExhaustiveTest(ProtoboardPtr unpackingPB, ProtoboardPtr 
 
 void LogicGadgetExhaustiveTester::setInputValsTo(const size_t val) {
     for (size_t maskBit = 0; maskBit < numInputs; ++maskBit) {
-        pb->val(inputs[maskBit]) = (val & (1u << maskBit)) ? 1 : 0;
+        pb->val(inputs[maskBit]) = (val & ((size_t)1 << maskBit)) ? 1 : 0;
     }
 }
 
@@ -380,7 +380,7 @@ LogicGadgetExhaustiveTester::LogicGadgetExhaustiveTester(ProtoboardPtr pb, size_
 
 void LogicGadgetExhaustiveTester::runExhaustiveTest() {
     logicGadget->generateConstraints();
-    for (currentInputValues = 0; currentInputValues < (1u << numInputs); ++currentInputValues) {
+    for (currentInputValues = 0; currentInputValues < ((size_t)1 << numInputs); ++currentInputValues) {
         setInputValsTo(currentInputValues);
         logicGadget->generateWitness();
         runCompletenessCheck();

@@ -36,7 +36,8 @@ namespace libsnark {
  */
 size_t benes_cross_edge_mask(const size_t dimension, const size_t column_idx)
 {
-    return (column_idx < dimension ? 1ul<<(dimension-1-column_idx) : 1ul<<(column_idx-dimension));
+    return (column_idx < dimension ? ((size_t)1) <<(dimension-1-column_idx) :
+			((size_t)1) <<(column_idx-dimension));
 }
 
 /**
@@ -116,7 +117,7 @@ size_t benes_packet_cross_source(const size_t dimension, const size_t column_idx
 size_t benes_num_columns(const size_t num_packets)
 {
     const size_t dimension = libff::log2(num_packets);
-    assert(num_packets == 1ul<<dimension);
+    assert(num_packets == ((size_t)1) <<dimension);
 
     return 2*dimension;
 }
@@ -125,7 +126,7 @@ benes_topology generate_benes_topology(const size_t num_packets)
 {
     const size_t num_columns = benes_num_columns(num_packets);
     const size_t dimension = libff::log2(num_packets);
-    assert(num_packets == 1ul<<dimension);
+    assert(num_packets == ((size_t)1) <<dimension);
 
     benes_topology result(num_columns);
 

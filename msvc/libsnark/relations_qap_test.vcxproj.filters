@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\relations\arithmetic_programs\qap\tests\test_qap.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{40096F9C-E79D-35DF-93B3-072981FFA9F7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -261,7 +261,7 @@ void ram_universal_gadget<ramT>::generate_r1cs_witness(const ram_boot_trace<ramT
     }
 
     /* do the actual execution */
-    ra_memory mem_backend(1ul<<(this->pb.ap.address_size()), this->pb.ap.value_size(), memory_after_boot);
+    ra_memory mem_backend(((size_t)1)<<(this->pb.ap.address_size()), this->pb.ap.value_size(), memory_after_boot);
     typename ram_input_tape<ramT>::const_iterator auxiliary_input_it = auxiliary_input.begin();
 
     this->pb.val(load_instruction_lines[0].address->packed) = FieldT(this->pb.ap.initial_pc_addr(), true);

@@ -1,5 +1,32 @@
 add_subdirectory(gtest EXCLUDE_FROM_ALL)
 
+include_directories(mcl/include)
+add_definitions(-DMCL_DONT_USE_OPENSSL)
+add_library(
+  mcl
+  STATIC
+
+  mcl/src/fp.cpp  
+)
+#set_property(TARGET mcl PROPERTY POSITION_INDEPENDENT_CODE ON)
+
+install(
+  TARGETS
+  mcl
+
+  DESTINATION lib
+)
+ 
+install(
+  DIRECTORY "mcl/include/" DESTINATION "include/depends/mcl/include"
+  FILES_MATCHING
+  PATTERN "*.hpp"
+  PATTERN "*.h"
+  PATTERN "logs" EXCLUDE
+  PATTERN "tests" EXCLUDE
+  PATTERN "tutorials" EXCLUDE
+)
+ 
 if(${CURVE} STREQUAL "BN128")
   include_directories(ate-pairing/include)
   include_directories(xbyak)
@@ -8,8 +35,9 @@ if(${CURVE} STREQUAL "BN128")
     STATIC
 
     ate-pairing/src/zm.cpp
-    ate-pairing/src/zm2.cpp
+    ate-pairing/src/zm2.cpp	
   )
+#  set_property(TARGET zm PROPERTY POSITION_INDEPENDENT_CODE ON)
 
   install(
     TARGETS
@@ -40,8 +68,9 @@ if("${WITH_SUPERCOP}")
     snark_supercop
     STATIC
 
-    ${SUPERCOP_SRCS}
+    ${SUPERCOP_SRCS}	
   )
+#  set_property(TARGET snark_supercop PROPERTY POSITION_INDEPENDENT_CODE ON)
 
   target_link_libraries(
     snark_supercop
@@ -50,7 +79,7 @@ if("${WITH_SUPERCOP}")
   )
 endif()
 
-if(NOT "${USE_LINKED_LIBRARIES}")
+if(NOT "${USE_LINKED_LIBRARIES}")    
   OPTION(IS_LIBFF_PARENT OFF)
   add_subdirectory(libff)
 

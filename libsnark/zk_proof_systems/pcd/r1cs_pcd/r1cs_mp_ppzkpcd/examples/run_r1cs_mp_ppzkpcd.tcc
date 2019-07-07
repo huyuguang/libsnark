@@ -15,6 +15,7 @@
 #ifndef RUN_R1CS_MP_PPZKPCD_TCC_
 #define RUN_R1CS_MP_PPZKPCD_TCC_
 
+#include <msvc_hack.h>
 #include <libsnark/zk_proof_systems/pcd/r1cs_pcd/compliance_predicate/examples/tally_cp.hpp>
 #include <libsnark/zk_proof_systems/pcd/r1cs_pcd/r1cs_mp_ppzkpcd/r1cs_mp_ppzkpcd.hpp>
 
@@ -125,7 +126,7 @@ bool run_r1cs_mp_ppzkpcd_tally_example(const size_t wordsize,
 
     std::shared_ptr<r1cs_pcd_message<FieldT> > base_msg = tally_1.get_base_case_message(); /* we choose the base to always be tally_1 */
     nodes_in_layer /= max_arity;
-    for (long layer = depth; layer >= 0; --layer, nodes_in_layer /= max_arity)
+    for (ssize_t layer = depth; layer >= 0; --layer, nodes_in_layer /= max_arity)
     {
         for (size_t i = 0; i < nodes_in_layer; ++i)
         {

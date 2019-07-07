@@ -19,7 +19,7 @@ using namespace libsnark;
 template<typename FieldT>
 void simulate_random_memory_contents(const tinyram_architecture_params &ap, const size_t input_size, const size_t program_size)
 {
-    const size_t num_addresses = 1ul<<ap.dwaddr_len();
+    const size_t num_addresses = ((size_t)1)<<ap.dwaddr_len();
     const size_t value_size = 2 * ap.w;
     memory_contents init_random = random_memory_contents(num_addresses, value_size, program_size + (input_size + 1)/2);
 

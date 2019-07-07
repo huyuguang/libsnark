@@ -142,7 +142,7 @@ ram_zksnark_proof<ram_zksnark_ppT> ram_zksnark_prover(const ram_zksnark_proving_
     r1cs_sp_ppzkpcd_proof<pcdT> cur_proof; // start out with an empty proof
 
     /* initialize memory with the correct values */
-    const size_t num_addresses = 1ul << pk.ap.address_size();
+    const size_t num_addresses = (size_t)1 << pk.ap.address_size();
     const size_t value_size = pk.ap.value_size();
 
     delegated_ra_memory<CRH_with_bit_out_gadget<FieldT> > mem(num_addresses, value_size, primary_input.as_memory_contents());

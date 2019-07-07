@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\common\data_structures\integer_permutation.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\libsnark\common\data_structures\set_commitment.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\libsnark\common\default_types\r1cs_ppzkpcd_pp.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\libsnark\common\default_types\tinyram_ppzksnark_pp.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\libsnark\common\default_types\tinyram_zksnark_pp.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\libsnark\common\routing_algorithms\as_waksman_routing_algorithm.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\libsnark\common\routing_algorithms\benes_routing_algorithm.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib1\constraint_profiling.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\adapters.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\constraint.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\gadget.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\infrastructure.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\integration.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\pp.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\protoboard.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\variable.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\libsnark\relations\circuit_satisfaction_problems\tbcs\tbcs.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\libsnark\relations\ram_computations\memory\memory_store_trace.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\libsnark\relations\ram_computations\memory\ra_memory.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\libsnark\relations\ram_computations\rams\fooram\fooram_aux.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\libsnark\relations\ram_computations\rams\tinyram\tinyram_aux.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{40096F9C-E79D-35DF-93B3-072981FFA9F7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

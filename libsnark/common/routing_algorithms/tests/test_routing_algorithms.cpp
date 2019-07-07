@@ -23,7 +23,7 @@ using namespace libsnark;
  */
 void test_benes(const size_t N)
 {
-    integer_permutation permutation(1ul << libff::log2(N));
+    integer_permutation permutation(((size_t)1) << libff::log2(N));
 
     do {
         const benes_routing routing = get_benes_routing(permutation);

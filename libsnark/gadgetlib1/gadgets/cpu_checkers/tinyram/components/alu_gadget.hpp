@@ -53,7 +53,7 @@ public:
         instruction_results(instruction_results),
         instruction_flags(instruction_flags)
     {
-        components.resize(1ul<<pb.ap.opcode_width());
+        components.resize(((size_t)1)<<pb.ap.opcode_width());
 
         /* arithmetic */
         components[tinyram_opcode_AND].reset(

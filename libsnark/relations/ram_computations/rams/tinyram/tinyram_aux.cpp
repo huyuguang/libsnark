@@ -118,7 +118,7 @@ std::vector<tinyram_instruction> generate_tinyram_prelude(const tinyram_architec
 {
     std::vector<tinyram_instruction> result;
     const size_t increment = libff::log2(ap.w)/8;
-    const size_t mem_start = 1ul<<(ap.w-1);
+    const size_t mem_start = ((size_t)1) <<(ap.w-1);
     result.emplace_back(tinyram_instruction(tinyram_opcode_STOREW,  true, 0, 0, 0));         // 0: store.w 0, r0
     result.emplace_back(tinyram_instruction(tinyram_opcode_MOV,     true, 0, 0, mem_start)); // 1: mov r0, 2^{W-1}
     result.emplace_back(tinyram_instruction(tinyram_opcode_READ,    true, 1, 0, 0));         // 2: read r1, 0
@@ -161,7 +161,7 @@ libff::bit_vector tinyram_architecture_params::initial_cpu_state() const
 memory_contents tinyram_architecture_params::initial_memory_contents(const tinyram_program &program,
                                                                      const tinyram_input_tape &primary_input) const
 {
-    // remember that memory consists of 1ul<<dwaddr_len() double words (!)
+    // remember that memory consists of ((size_t)1)<<dwaddr_len() double words (!)
     memory_contents m;
 
     for (size_t i = 0; i < program.instructions.size(); ++i)
@@ -169,8 +169,8 @@ memory_contents tinyram_architecture_params::initial_memory_contents(const tinyr
         m[i] = program.instructions[i].as_dword(*this);
     }
 
-    const size_t input_addr = 1ul << (dwaddr_len() - 1);
-    size_t latest_double_word = (1ull<<(w-1)) + primary_input.size(); // the first word will contain 2^{w-1} + input_size (the location where the last input word was stored)
+    const size_t input_addr = ((size_t)1) << (dwaddr_len() - 1);
+    size_t latest_double_word = (((size_t)1) <<(w-1)) + primary_input.size(); // the first word will contain 2^{w-1} + input_size (the location where the last input word was stored)
 
     for (size_t i = 0; i < primary_input.size()/2 + 1; ++i)
     {
@@ -284,11 +284,11 @@ void tinyram_architecture_params::print() const
 
 tinyram_instruction random_tinyram_instruction(const tinyram_architecture_params &ap)
 {
-    const tinyram_opcode opcode = (tinyram_opcode)(std::rand() % (1ul<<ap.opcode_width()));
+    const tinyram_opcode opcode = (tinyram_opcode)(std::rand() % (((size_t)1)<<ap.opcode_width()));
     const bool arg2_is_imm = std::rand() & 1;
-    const size_t desidx = std::rand() % (1ul<<ap.reg_arg_width());
-    const size_t arg1idx = std::rand() % (1ul<<ap.reg_arg_width());
-    const size_t arg2idx_or_imm = std::rand() % (1ul<<ap.reg_arg_or_imm_width());
+    const size_t desidx = std::rand() % (((size_t)1)<<ap.reg_arg_width());
+    const size_t arg1idx = std::rand() % (((size_t)1)<<ap.reg_arg_width());
+    const size_t arg2idx_or_imm = std::rand() % (((size_t)1)<<ap.reg_arg_or_imm_width());
     return tinyram_instruction(opcode, arg2_is_imm, desidx, arg1idx, arg2idx_or_imm);
 }
 
@@ -315,7 +315,7 @@ tinyram_program load_preprocessed_program(const tinyram_architecture_params &ap,
         if (preprocessed.good())
         {
             preprocessed >> immflag >> des >> a1 >> a2;
-            a2 = ((1ul<<ap.w)+(a2 % (1ul<<ap.w))) % (1ul<<ap.w);
+            a2 = ((1ull<<ap.w)+(a2 % (1ull<<ap.w))) % (1ull<<ap.w);
             program.add_instruction(tinyram_instruction(opcode_values[instr], immflag, des, a1, a2));
         }
     }
@@ -339,7 +339,7 @@ memory_store_trace tinyram_boot_trace_from_program_and_input(const tinyram_archi
         result.set_trace_entry(boot_pos--, std::make_pair(i, program.instructions[i].as_dword(ap)));
     }
 
-    const size_t primary_input_base_addr = (1ul << (ap.dwaddr_len()-1));
+    const size_t primary_input_base_addr = (((size_t)1) << (ap.dwaddr_len()-1));
 
     for (size_t j = 0; j < primary_input.size(); j += 2)
     {

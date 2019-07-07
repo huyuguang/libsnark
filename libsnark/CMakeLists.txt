@@ -9,6 +9,17 @@ if(${CURVE} STREQUAL "BN128")
   )
 endif()
 
+set(SNARK_EXTRALIBS)
+if(${CURVE} STREQUAL "MCL_BN128")
+  set(
+    SNARK_EXTRALIBS
+
+    ${SNARK_EXTRALIBS}
+    ${PROCPS_LIBRARIES}
+    mcl
+  )
+endif()
+
 # TODO(madars): Revisit the decision to only offer a static
 # library. In theory, it might be nice to offer a shared object, but
 # it may be impractical for users, since many of the build-time
@@ -39,8 +50,11 @@ add_library(
   relations/ram_computations/memory/memory_store_trace.cpp
   relations/ram_computations/memory/ra_memory.cpp
   relations/ram_computations/rams/fooram/fooram_aux.cpp
-  relations/ram_computations/rams/tinyram/tinyram_aux.cpp
+  relations/ram_computations/rams/tinyram/tinyram_aux.cpp  
 )
+
+#set_property(TARGET snark PROPERTY POSITION_INDEPENDENT_CODE ON)
+
 if("${USE_LINKED_LIBRARIES}")
   target_link_libraries(
     snark
@@ -70,6 +84,7 @@ else()
     PUBLIC
     ${DEPENDS_DIR}/libff
     ${DEPENDS_DIR}/libfqfft
+	${DEPENDS_DIR}/mcl/include
   )
 endif()
 
@@ -93,8 +108,9 @@ if("${WITH_SUPERCOP}")
   add_library(
     snark_adsnark
 
-    common/default_types/r1cs_ppzkadsnark_pp.cpp
+    common/default_types/r1cs_ppzkadsnark_pp.cpp	
   )
+# set_property(TARGET snark_adsnark PROPERTY POSITION_INDEPENDENT_CODE ON)  
   target_link_libraries(
     snark_adsnark
 

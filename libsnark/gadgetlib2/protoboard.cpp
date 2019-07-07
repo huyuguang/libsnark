@@ -47,7 +47,7 @@ void Protoboard::setValuesAsBitArray(const VariableArray& varArray, const size_t
                      "at least %u", varArray.size(), srcValue, Log2ceil(srcValue)));
     size_t i = 0;
     for(i = 0; i < Log2ceil(srcValue); ++i) {
-        val(varArray[i]) = srcValue & (1u<<i) ? 1 : 0 ;
+        val(varArray[i]) = srcValue & (((size_t)1) <<i) ? 1 : 0 ;
     }
     for(; i < varArray.size(); ++i) {
         val(varArray[i]) = 0 ;

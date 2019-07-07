@@ -43,9 +43,9 @@ namespace gadgetlib2 {
 
 FElem::FElem(const FElemInterface& elem) : elem_(elem.clone()) {}
 FElem::FElem() : elem_(new FConst(0)) {}
-FElem::FElem(const long n) : elem_(new FConst(n)) {}
+FElem::FElem(const mp_limb_t n) : elem_(new FConst(n)) {}
 FElem::FElem(const int i) : elem_(new FConst(i)) {}
-FElem::FElem(const size_t n) : elem_(new FConst(n)) {}
+//FElem::FElem(const size_t n) : elem_(new FConst(n)) {}
 FElem::FElem(const Fp& elem) : elem_(new R1P_Elem(elem)) {}
 FElem::FElem(const FElem& src) : elem_(src.elem_->clone()) {}
 
@@ -122,7 +122,7 @@ int FElem::getBit(unsigned int i, const FieldType& fieldType) {
     }
 }
 
-FElem power(const FElem& base, long exponent) { // TODO .cpp
+FElem power(const FElem& base, mp_limb_t exponent) { // TODO .cpp
     FElem retval(base);
     retval.elem_->power(exponent);
     return retval;
@@ -159,8 +159,8 @@ FElemInterfacePtr FConst::inverse() const {
     GADGETLIB_FATAL("Attempted to invert an FConst element.");
 }
 
-FElemInterface& FConst::power(long exponent) {
-    contents_ = 0.5 + ::std::pow(double(contents_), double(exponent));
+FElemInterface& FConst::power(mp_limb_t exponent) {
+    contents_ = (mp_limb_t)(0.5 + ::std::pow(double(contents_), double(exponent)));
     return *this;
 }
 
@@ -226,9 +226,9 @@ FElemInterfacePtr R1P_Elem::inverse() const {
     return FElemInterfacePtr(new R1P_Elem(elem_.inverse()));
 }
 
-long R1P_Elem::asLong() const {
+mp_limb_t R1P_Elem::asLong() const {
     //GADGETLIB_ASSERT(elem_.as_ulong() <= LONG_MAX, "long overflow occured.");
-    return long(elem_.as_ulong());
+    return elem_.as_ulong();
 }
 
 /***********************************/
@@ -247,13 +247,13 @@ VarIndex_t Variable::nextFreeIndex_ = 0;
 #ifdef DEBUG
 Variable::Variable(const string& name) : index_(nextFreeIndex_++), name_(name) {
     GADGETLIB_ASSERT(nextFreeIndex_ > 0, GADGETLIB2_FMT("Variable index overflow has occured, maximum number of "
-                                         "Variables is %lu", ULONG_MAX));
+                                         "Variables is %zu", (size_t)ULONG_MAX));
 }
 #else
 Variable::Variable(const string& name) : index_(nextFreeIndex_++) {
     libff::UNUSED(name);
     GADGETLIB_ASSERT(nextFreeIndex_ > 0, GADGETLIB2_FMT("Variable index overflow has occured, maximum number of "
-                                         "Variables is %lu", ULONG_MAX));
+                                         "Variables is %zu", (size_t)ULONG_MAX));
 }
 #endif
 
@@ -271,7 +271,7 @@ FElem Variable::eval(const VariableAssignment& assignment) const {
     try {
         return assignment.at(*this);
     } catch (::std::out_of_range) {
-        GADGETLIB_FATAL(GADGETLIB2_FMT("Attempted to evaluate unassigned Variable \"%s\", idx:%lu", name().c_str(),
+        GADGETLIB_FATAL(GADGETLIB2_FMT("Attempted to evaluate unassigned Variable \"%s\", idx:%zu", name().c_str(),
                         index_));
     }
 }

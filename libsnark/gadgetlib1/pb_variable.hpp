@@ -61,7 +61,7 @@ public:
 
     void fill_with_field_elements(protoboard<FieldT> &pb, const std::vector<FieldT>& vals) const;
     void fill_with_bits(protoboard<FieldT> &pb, const libff::bit_vector& bits) const;
-    void fill_with_bits_of_ulong(protoboard<FieldT> &pb, const unsigned long i) const;
+    void fill_with_bits_of_ulong(protoboard<FieldT> &pb, const size_t i) const;
     void fill_with_bits_of_field_element(protoboard<FieldT> &pb, const FieldT &r) const;
 
     std::vector<FieldT> get_vals(const protoboard<FieldT> &pb) const;
@@ -71,7 +71,7 @@ public:
 };
 
 /* index 0 corresponds to the constant term (used in legacy code) */
-#define ONE pb_variable<FieldT>(0)
+#define ONE libsnark::pb_variable<FieldT>(0)
 
 template<typename FieldT>
 class pb_linear_combination : public linear_combination<FieldT> {
@@ -122,7 +122,7 @@ public:
 
     void fill_with_field_elements(protoboard<FieldT> &pb, const std::vector<FieldT>& vals) const;
     void fill_with_bits(protoboard<FieldT> &pb, const libff::bit_vector& bits) const;
-    void fill_with_bits_of_ulong(protoboard<FieldT> &pb, const unsigned long i) const;
+    void fill_with_bits_of_ulong(protoboard<FieldT> &pb, const size_t i) const;
     void fill_with_bits_of_field_element(protoboard<FieldT> &pb, const FieldT &r) const;
 
     std::vector<FieldT> get_vals(const protoboard<FieldT> &pb) const;

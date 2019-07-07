@@ -85,7 +85,7 @@ TEST(gadgetLib2, VariableEval) {
 
 TEST(gadgetLib2, FElem_FConst_fromLong) {
     initPublicParamsFromDefaultPp();
-    FElem e0(long(0));
+    FElem e0(size_t(0));
     EXPECT_TRUE(e0 == 0);
 }
 
@@ -99,7 +99,7 @@ TEST(gadgetLib2, FElem_FConst_fromInt) {
 
 TEST(gadgetLib2, FElem_FConst_copy) {
     initPublicParamsFromDefaultPp();
-    FElem e0(long(0));
+    FElem e0(size_t(0));
     FElem e1(int(1));
     FElem e3(e1);
     EXPECT_TRUE(e3 == 1);
@@ -147,7 +147,7 @@ TEST(gadgetLib2, FElem_FConst_fieldType) {
 
 TEST(gadgetLib2, FElem_FConst_operatorEquals) {
     initPublicParamsFromDefaultPp();
-    FElem e0(long(0));
+    FElem e0(size_t(0));
     FElem e1(int(1));
     FElem e2(FElem(2));
     e0 = e1 = 42;
@@ -274,7 +274,7 @@ TEST(gadgetLib2, FElem_R1P_Elem_assignFromLong) {
 
 TEST(gadgetLib2, FElem_R1P_Elem_asString) {
     initPublicParamsFromDefaultPp();
-    FElem e1 = long(42);
+    FElem e1 = size_t(42);
     #ifdef DEBUG
         EXPECT_EQ(e1.asString(), "42");
     #else

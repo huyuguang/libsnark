@@ -12,7 +12,7 @@
 
 #include <memory>
 #include <vector>
-
+#include <msvc_hack.h>
 #include <libff/common/default_types/ec_pp.hpp>
 
 namespace gadgetlib2 {
@@ -34,7 +34,7 @@ class PublicParams {
 public:
     size_t log_p;
     PublicParams(const std::size_t log_p);
-    Fp getFp(long x) const; // to_support changes later
+    Fp getFp(ssize_t x) const; // to_support changes later
     ~PublicParams();
 };
 

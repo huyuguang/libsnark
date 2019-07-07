@@ -74,11 +74,11 @@ tinyram_standard_gadget<FieldT>(pb, annotation_prefix), prev_pc_addr(prev_pc_add
                                                                FMT(annotation_prefix, " decode_arguments")));
 
     /* create indicator variables for opcodes */
-    opcode_indicators.allocate(pb, 1ul<<pb.ap.opcode_width(), FMT(annotation_prefix, " opcode_indicators"));
+    opcode_indicators.allocate(pb, ((size_t)1)<<pb.ap.opcode_width(), FMT(annotation_prefix, " opcode_indicators"));
 
     /* perform the ALU operations */
-    instruction_results.allocate(pb, 1ul<<pb.ap.opcode_width(), FMT(annotation_prefix, " instruction_results"));
-    instruction_flags.allocate(pb, 1ul<<pb.ap.opcode_width(), FMT(annotation_prefix, " instruction_flags"));
+    instruction_results.allocate(pb, ((size_t)1)<<pb.ap.opcode_width(), FMT(annotation_prefix, " instruction_results"));
+    instruction_flags.allocate(pb, ((size_t)1)<<pb.ap.opcode_width(), FMT(annotation_prefix, " instruction_flags"));
 
     ALU.reset(new ALU_gadget<FieldT>(pb, opcode_indicators, *prev_pc_addr_as_word_variable, *desval, *arg1val, *arg2val, prev_flag, instruction_results, instruction_flags,
                                      FMT(annotation_prefix, " ALU")));
@@ -126,7 +126,7 @@ void tinyram_cpu_checker<FieldT>::generate_r1cs_constraints()
     decode_arguments->generate_r1cs_constraints();
 
     /* generate indicator variables for opcode */
-    for (size_t i = 0; i < 1ul<<this->pb.ap.opcode_width(); ++i)
+    for (size_t i = 0; i < ((size_t)1)<<this->pb.ap.opcode_width(); ++i)
     {
         this->pb.add_r1cs_constraint(r1cs_constraint<FieldT>(opcode_indicators[i], pb_packing_sum<FieldT>(opcode) - i, 0),
                                      FMT(this->annotation_prefix, " opcode_indicators_%zu", i));
@@ -265,7 +265,7 @@ void tinyram_cpu_checker<FieldT>::generate_r1cs_witness_other(tinyram_input_tape
 
     /* fill in the opcode indicators */
     const size_t opcode_val = opcode.get_field_element_from_bits(this->pb).as_ulong();
-    for (size_t i = 0; i < 1ul<<this->pb.ap.opcode_width(); ++i)
+    for (size_t i = 0; i < ((size_t)1)<<this->pb.ap.opcode_width(); ++i)
     {
         this->pb.val(opcode_indicators[i]) = (i == opcode_val ? FieldT::one() : FieldT::zero());
     }
@@ -305,7 +305,8 @@ void tinyram_cpu_checker<FieldT>::generate_r1cs_witness_other(tinyram_input_tape
     else
     {
         const bool access_is_word0 = (this->pb.val(*memory_subaddress->bits.rbegin()) == FieldT::zero());
-        const size_t loaded_word = (prev_doubleword >> (access_is_word0 ? 0 : this->pb.ap.w)) & ((1ul << this->pb.ap.w) - 1);
+        const size_t loaded_word = (prev_doubleword >> (access_is_word0 ? 0 : this->pb.ap.w)) &
+					(((size_t)1 << this->pb.ap.w) - 1);
         this->pb.val(instruction_results[tinyram_opcode_LOADW]) = FieldT(loaded_word); /* does not hurt even for non-memory instructions */
         this->pb.val(memory_subcontents) = FieldT(loaded_word);
     }
@@ -372,19 +373,19 @@ void tinyram_cpu_checker<FieldT>::generate_r1cs_witness_other(tinyram_input_tape
 template<typename FieldT>
 void tinyram_cpu_checker<FieldT>::dump() const
 {
-    printf("   pc = %lu, flag = %lu\n",
+    printf("   pc = %zu, flag = %zu\n",
            this->pb.val(prev_pc_addr_as_word_variable->packed).as_ulong(),
            this->pb.val(prev_flag).as_ulong());
     printf("   ");
 
     for (size_t j = 0; j < this->pb.ap.k; ++j)
     {
-        printf("r%zu = %2lu ", j, this->pb.val(prev_registers[j].packed).as_ulong());
+        printf("r%zu = %2zu ", j, this->pb.val(prev_registers[j].packed).as_ulong());
     }
     printf("\n");
 
     const size_t opcode_val = opcode.get_field_element_from_bits(this->pb).as_ulong();
-    printf("   %s r%lu, r%lu, %s%lu\n",
+    printf("   %s r%zu, r%zu, %s%zu\n",
            tinyram_opcode_names[static_cast<tinyram_opcode>(opcode_val)].c_str(),
            desidx.get_field_element_from_bits(this->pb).as_ulong(),
            arg1idx.get_field_element_from_bits(this->pb).as_ulong(),

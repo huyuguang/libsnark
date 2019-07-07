@@ -117,14 +117,14 @@ r1cs_pcd_compliance_predicate<FieldT> compliance_predicate_handler<FieldT, proto
 
     const size_t local_data_length = local_data->all_vars.size();
 
-    const size_t all_but_witness_length = ((1 + outgoing_message_payload_length) + 1 +
+    const size_t all_but_witness_length = (((size_t)1 + outgoing_message_payload_length) + (size_t)1 +
                                            (max_arity + std::accumulate(incoming_message_payload_lengths.begin(),
-                                                                        incoming_message_payload_lengths.end(), 0)) +
+                                                                        incoming_message_payload_lengths.end(), (size_t)0)) +
                                            local_data_length);
     const size_t witness_length = pb.num_variables() - all_but_witness_length;
 
     r1cs_constraint_system<FieldT> constraint_system = pb.get_constraint_system();
-    constraint_system.primary_input_size = 1 + outgoing_message_payload_length;
+    constraint_system.primary_input_size = (size_t)1 + outgoing_message_payload_length;
     constraint_system.auxiliary_input_size = pb.num_variables() - constraint_system.primary_input_size;
 
     return r1cs_pcd_compliance_predicate<FieldT>(name,
@@ -175,9 +175,9 @@ r1cs_pcd_witness<FieldT> compliance_predicate_handler<FieldT, protoboardT>::get_
 {
     const r1cs_variable_assignment<FieldT> va = pb.full_variable_assignment();
     // outgoing_message + arity + incoming_messages + local_data
-    const size_t witness_pos = (outgoing_message->all_vars.size() + 1 +
+    const size_t witness_pos = (outgoing_message->all_vars.size() + (size_t)1 +
                                 std::accumulate(incoming_messages.begin(), incoming_messages.end(),
-                                                0, [](size_t acc, const std::shared_ptr<r1cs_pcd_message_variable<FieldT> > &msg) {
+                                                (size_t)0, [](size_t acc, const std::shared_ptr<r1cs_pcd_message_variable<FieldT> > &msg) {
                                                     return acc + msg->all_vars.size(); }) +
                                 local_data->all_vars.size());
 

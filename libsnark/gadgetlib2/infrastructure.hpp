@@ -12,7 +12,7 @@
 #include <cstdint>
 #include <sstream>
 #include <string>
-
+#include <msvc_hack.h>
 #include <libff/common/utils.hpp>
 
 #ifndef  __infrastructure_HPP
@@ -99,7 +99,7 @@ double Log2(double n);
 unsigned int Log2ceil(uint64_t i);
 
 //Returns true iff the given number is a power of 2.
-bool IsPower2(const long x);
+bool IsPower2(const ssize_t x);
 
 
 //Returns a^b when a can be a and b are INTEGERS.
@@ -109,7 +109,7 @@ bool IsPower2(const long x);
 //#define POW(a,b) ((int64_t)(pow((float)(a),(int)(b))))
 
 // Returns 2^exponent
-/*constexpr*/ inline int64_t POW2(int exponent) {
+/*constexpr*/ inline int64_t POW2(size_t exponent) {
     //assert(exponent>=0);
     return ((int64_t)1) << exponent;
 }

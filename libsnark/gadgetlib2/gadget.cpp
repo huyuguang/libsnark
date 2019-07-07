@@ -126,8 +126,10 @@ R1P_AND_Gadget::R1P_AND_Gadget(ProtoboardPtr pb,
 }
 
 void R1P_AND_Gadget::init() {
-    const int numInputs = input_.size();
-    sum_ = sum(input_) - numInputs;
+    const auto numInputs = input_.size();
+    // sum_ = sum(input_) - numInputs;
+    sum_ = sum(input_);
+    sum_ -= numInputs;
 }
 
 void R1P_AND_Gadget::generateConstraints() {
@@ -316,7 +318,7 @@ R1P_InnerProduct_Gadget::R1P_InnerProduct_Gadget(ProtoboardPtr pb,
 void R1P_InnerProduct_Gadget::init() {}
 
 void R1P_InnerProduct_Gadget::generateConstraints() {
-    const int n = A_.size();
+    const auto n = A_.size();
     if (n == 1) {
         addRank1Constraint(A_[0], B_[0], result_, "A[0] * B[0] = result");
         return;
@@ -332,7 +334,7 @@ void R1P_InnerProduct_Gadget::generateConstraints() {
 }
 
 void R1P_InnerProduct_Gadget::generateWitness() {
-    const int n = A_.size();
+    const auto n = A_.size();
     if (n == 1) {
         val(result_) = val(A_[0]) * val(B_[0]);
         return;
@@ -401,7 +403,7 @@ void R1P_LooseMUX_Gadget::init() {
 void R1P_LooseMUX_Gadget::generateConstraints() {
     const size_t n = inputs_.size();
     for(size_t i = 0; i < n; ++i) {
-        addRank1Constraint(indicators_[i], (index_-i), 0,
+        addRank1Constraint(indicators_[i], (index_-(int)i), 0,
             GADGETLIB2_FMT("indicators[%u] * (index - %u) = 0", i, i));
     }
     addRank1Constraint(sum(indicators_), 1, successFlag_, "sum(indicators) * 1 = successFlag");
@@ -503,7 +505,7 @@ R1P_CompressionPacking_Gadget::R1P_CompressionPacking_Gadget(ProtoboardPtr pb,
                                                              PackingMode packingMode)
     : Gadget(pb), CompressionPacking_GadgetBase(pb), R1P_Gadget(pb), packingMode_(packingMode),
       unpacked_(unpacked), packed_(packed) {
-    const int n = unpacked.size();
+    const auto n = unpacked.size();
     GADGETLIB_ASSERT(n > 0, "Attempted to pack 0 bits in R1P.")
     GADGETLIB_ASSERT(packed.size() == 1,
                  "Attempted to pack into more than 1 Variable in R1P_CompressionPacking_Gadget.")
@@ -513,7 +515,7 @@ R1P_CompressionPacking_Gadget::R1P_CompressionPacking_Gadget(ProtoboardPtr pb,
 void R1P_CompressionPacking_Gadget::init() {}
 
 void R1P_CompressionPacking_Gadget::generateConstraints() {
-    const int n = unpacked_.size();
+    const auto n = unpacked_.size();
     LinearCombination packed;
     FElem two_i(R1P_Elem(1)); // Will hold 2^i
     for (int i = 0; i < n; ++i) {
@@ -525,7 +527,7 @@ void R1P_CompressionPacking_Gadget::generateConstraints() {
 }
 
 void R1P_CompressionPacking_Gadget::generateWitness() {
-    const int n = unpacked_.size();
+    const auto n = unpacked_.size();
     if (packingMode_ == PackingMode::PACK) {
         FElem packedVal = 0;
         FElem two_i(R1P_Elem(1)); // will hold 2^i
@@ -533,7 +535,12 @@ void R1P_CompressionPacking_Gadget::generateWitness() {
             GADGETLIB_ASSERT(val(unpacked_[i]).asLong() == 0 || val(unpacked_[i]).asLong() == 1,
                          GADGETLIB2_FMT("unpacked[%u]  = %u. Expected a Boolean value.", i,
                              val(unpacked_[i]).asLong()));
-            packedVal += two_i * val(unpacked_[i]).asLong();
+
+            //packedVal += two_i * val(unpacked_[i]).asInteger();
+						auto tmp = two_i;
+						tmp *= val(unpacked_[i]).asLong();
+						packedVal += tmp;
+
             two_i += two_i;
         }
         val(packed_[0]) = packedVal;
@@ -581,7 +588,7 @@ R1P_IntegerPacking_Gadget::R1P_IntegerPacking_Gadget(ProtoboardPtr pb,
                                                            PackingMode packingMode)
     : Gadget(pb), IntegerPacking_GadgetBase(pb), R1P_Gadget(pb), packingMode_(packingMode),
       unpacked_(unpacked), packed_(packed) {
-    const int n = unpacked.size();
+    const auto n = unpacked.size();
     GADGETLIB_ASSERT(n > 0, "Attempted to pack 0 bits in R1P.")
     GADGETLIB_ASSERT(packed.size() == 1,
                  "Attempted to pack into more than 1 Variable in R1P_IntegerPacking_Gadget.")
@@ -930,7 +937,7 @@ void R1P_Comparison_Gadget::init() {
 */
 void R1P_Comparison_Gadget::generateConstraints() {
     enforceBooleanity(notAllZeroes_);
-    const FElem two_n = long(POW2(wordBitSize_));
+    const FElem two_n = mp_limb_t(POW2(wordBitSize_));
     addRank1Constraint(1, alpha_p_, two_n + rhs_ - lhs_,
 							 "packed(alpha) = 2^n + B - A");
     alphaDualVariablePacker_->generateConstraints();
@@ -941,7 +948,7 @@ void R1P_Comparison_Gadget::generateConstraints() {
 }
 
 void R1P_Comparison_Gadget::generateWitness() {
-    const FElem two_n = long(POW2(wordBitSize_));
+    const FElem two_n = mp_limb_t(POW2(wordBitSize_));
     val(alpha_p_) = two_n + val(rhs_) - val(lhs_);
     alphaDualVariablePacker_->generateWitness();
     allZeroesTest_->generateWitness();

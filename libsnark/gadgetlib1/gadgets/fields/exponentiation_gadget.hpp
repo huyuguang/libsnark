@@ -31,7 +31,7 @@ template<typename FpkT, template<class> class Fpk_variableT, template<class> cla
 class exponentiation_gadget : gadget<typename FpkT::my_Fp> {
 public:
     typedef typename FpkT::my_Fp FieldT;
-    std::vector<long> NAF;
+    std::vector<int64_t> NAF;
 
     std::vector<std::shared_ptr<Fpk_variableT<FpkT> > > intermediate;
     std::vector<std::shared_ptr<Fpk_mul_gadgetT<FpkT> > > addition_steps;

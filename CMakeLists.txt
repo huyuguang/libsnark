@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
 project (libsnark)
 
 set(
@@ -7,7 +9,7 @@ set(
   "BN128"
   CACHE
   STRING
-  "Default curve: one of ALT_BN128, BN128, EDWARDS, MNT4, MNT6"
+  "Default curve: one of ALT_BN128, BN128, MCL_BN128, EDWARDS, MNT4, MNT6"
 )
 
 option(
@@ -60,7 +62,7 @@ option(
 option(
   WITH_PROCPS
   "Use procps for memory profiling"
-  ON
+  OFF
 )
 
 option(
@@ -162,6 +164,7 @@ enable_testing()
 
 include_directories(.)
 
+# ate-pairing libary need this
 if(${CURVE} STREQUAL "BN128")
   add_definitions(
     -DBN_SUPPORT_SNARK=1

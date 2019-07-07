@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="I:\blockchain\zksnark_win2\libsnark\libsnark\CMakeLists.txt" />
+    <CustomBuild Include="I:\blockchain\zksnark_win2\libsnark\build\CMakeFiles\2d173d1f12b4be6ce616fb7f960d061f\Experimental.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="I:\blockchain\zksnark_win2\libsnark\build\libsnark\CMakeFiles\Experimental" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{4084634D-E65E-3516-B79C-658F26EB1F2C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

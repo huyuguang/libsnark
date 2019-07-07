@@ -112,7 +112,7 @@ unsigned int Log2ceil(uint64_t i) {
 }
 
 ///Returns true iff x is a power of 2
-bool IsPower2(const long x)  {
+bool IsPower2(const ssize_t x)  {
     return ( (x > 0) && ((x & (x - 1)) == 0) );
 }
 

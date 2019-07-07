@@ -47,7 +47,8 @@ template<typename FieldT>
 void packing_gadget<FieldT>::generate_r1cs_witness_from_packed()
 {
     packed.evaluate(this->pb);
-    assert(this->pb.lc_val(packed).as_bigint().num_bits() <= bits.size()); // `bits` is large enough to represent this packed value
+    auto num_bits = this->pb.lc_val(packed).as_bigint().num_bits();
+    assert(num_bits <= bits.size()); // `bits` is large enough to represent this packed value
     bits.fill_with_bits_of_field_element(this->pb, this->pb.lc_val(packed));
 }
 
@@ -275,11 +276,11 @@ void test_disjunction_gadget(const size_t n)
     disjunction_gadget<FieldT> d(pb, inputs, output, "d");
     d.generate_r1cs_constraints();
 
-    for (size_t w = 0; w < 1ul<<n; ++w)
+    for (size_t w = 0; w < ((size_t)1) <<n; ++w)
     {
         for (size_t j = 0; j < n; ++j)
         {
-            pb.val(inputs[j]) = FieldT((w & (1ul<<j)) ? 1 : 0);
+            pb.val(inputs[j]) = FieldT((w & (((size_t)1) <<j)) ? 1 : 0);
         }
 
         d.generate_r1cs_witness();
@@ -366,11 +367,11 @@ void test_conjunction_gadget(const size_t n)
     conjunction_gadget<FieldT> c(pb, inputs, output, "c");
     c.generate_r1cs_constraints();
 
-    for (size_t w = 0; w < 1ul<<n; ++w)
+    for (size_t w = 0; w < ((size_t)1) <<n; ++w)
     {
         for (size_t j = 0; j < n; ++j)
         {
-            pb.val(inputs[j]) = (w & (1ul<<j)) ? FieldT::one() : FieldT::zero();
+            pb.val(inputs[j]) = (w & (((size_t)1) <<j)) ? FieldT::one() : FieldT::zero();
         }
 
         c.generate_r1cs_witness();
@@ -378,13 +379,13 @@ void test_conjunction_gadget(const size_t n)
 #ifdef DEBUG
         printf("positive test for %zu\n", w);
 #endif
-        assert(pb.val(output) == (w == (1ul<<n) - 1 ? FieldT::one() : FieldT::zero()));
+        assert(pb.val(output) == (w == (((size_t)1) <<n) - 1 ? FieldT::one() : FieldT::zero()));
         assert(pb.is_satisfied());
 
 #ifdef DEBUG
         printf("negative test for %zu\n", w);
 #endif
-        pb.val(output) = (w == (1ul<<n) - 1 ? FieldT::zero() : FieldT::one());
+        pb.val(output) = (w == (((size_t)1) <<n) - 1 ? FieldT::zero() : FieldT::one());
         assert(!pb.is_satisfied());
     }
 
@@ -454,9 +455,9 @@ void test_comparison_gadget(const size_t n)
     comparison_gadget<FieldT> cmp(pb, n, A, B, less, less_or_eq, "cmp");
     cmp.generate_r1cs_constraints();
 
-    for (size_t a = 0; a < 1ul<<n; ++a)
+    for (size_t a = 0; a < ((size_t)1) <<n; ++a)
     {
-        for (size_t b = 0; b < 1ul<<n; ++b)
+        for (size_t b = 0; b < ((size_t)1) <<n; ++b)
         {
             pb.val(A) = FieldT(a);
             pb.val(B) = FieldT(b);
@@ -523,16 +524,16 @@ void test_inner_product_gadget(const size_t n)
     inner_product_gadget<FieldT> g(pb, A, B, result, "g");
     g.generate_r1cs_constraints();
 
-    for (size_t i = 0; i < 1ul<<n; ++i)
+    for (size_t i = 0; i < ((size_t)1)<<n; ++i)
     {
-        for (size_t j = 0; j < 1ul<<n; ++j)
+        for (size_t j = 0; j < ((size_t)1)<<n; ++j)
         {
             size_t correct = 0;
             for (size_t k = 0; k < n; ++k)
             {
-                pb.val(A[k]) = (i & (1ul<<k) ? FieldT::one() : FieldT::zero());
-                pb.val(B[k]) = (j & (1ul<<k) ? FieldT::one() : FieldT::zero());
-                correct += ((i & (1ul<<k)) && (j & (1ul<<k)) ? 1 : 0);
+                pb.val(A[k]) = (i & (((size_t)1)<<k) ? FieldT::one() : FieldT::zero());
+                pb.val(B[k]) = (j & (((size_t)1)<<k) ? FieldT::one() : FieldT::zero());
+                correct += ((i & (((size_t)1)<<k)) && (j & (((size_t)1)<<k)) ? 1 : 0);
             }
 
             g.generate_r1cs_witness();
@@ -587,7 +588,7 @@ void loose_multiplexing_gadget<FieldT>::generate_r1cs_witness()
 {
     /* assumes that idx can be fit in ulong; true for our purposes for now */
     const libff::bigint<FieldT::num_limbs> valint = this->pb.val(index).as_bigint();
-    unsigned long idx = valint.as_ulong();
+    size_t idx = valint.as_ulong();
     const libff::bigint<FieldT::num_limbs> arrsize(arr.size());
 
     if (idx >= arr.size() || mpn_cmp(valint.data, arrsize.data, FieldT::num_limbs) >= 0)
@@ -619,7 +620,7 @@ void test_loose_multiplexing_gadget(const size_t n)
     protoboard<FieldT> pb;
 
     pb_variable_array<FieldT> arr;
-    arr.allocate(pb, 1ul<<n, "arr");
+    arr.allocate(pb, ((size_t)1)<<n, "arr");
     pb_variable<FieldT> index, result, success_flag;
     index.allocate(pb, "index");
     result.allocate(pb, "result");
@@ -628,20 +629,20 @@ void test_loose_multiplexing_gadget(const size_t n)
     loose_multiplexing_gadget<FieldT> g(pb, arr, index, result, success_flag, "g");
     g.generate_r1cs_constraints();
 
-    for (size_t i = 0; i < 1ul<<n; ++i)
+    for (size_t i = 0; i < ((size_t)1)<<n; ++i)
     {
-        pb.val(arr[i]) = FieldT((19*i) % (1ul<<n));
+        pb.val(arr[i]) = FieldT((19*i) % (((size_t)1)<<n));
     }
 
-    for (int idx = -1; idx <= (int)(1ul<<n); ++idx)
+    for (int idx = -1; idx <= (int)(((size_t)1)<<n); ++idx)
     {
         pb.val(index) = FieldT(idx);
         g.generate_r1cs_witness();
 
-        if (0 <= idx && idx <= (int)(1ul<<n) - 1)
+        if (0 <= idx && idx <= (int)(((size_t)1)<<n) - 1)
         {
             printf("demuxing element %d (in bounds)\n", idx);
-            assert(pb.val(result) == FieldT((19*idx) % (1ul<<n)));
+            assert(pb.val(result) == FieldT((19*idx) % (((size_t)1)<<n)));
             assert(pb.val(success_flag) == FieldT::one());
             assert(pb.is_satisfied());
             pb.val(result) -= FieldT::one();

@@ -19,6 +19,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <msvc_hack.h>
 
 namespace libsnark {
 
@@ -26,7 +27,7 @@ namespace libsnark {
  * Mnemonic typedefs.
  */
 typedef size_t var_index_t;
-typedef long integer_coeff_t;
+typedef ssize_t integer_coeff_t;
 
 /**
  * Forward declaration.

@@ -16,3 +16,6 @@
 [submodule "depends/libfqfft"]
 	path = depends/libfqfft
 	url = https://github.com/huyuguang/libfqfft.git
+[submodule "depends/mcl"]
+	path = depends/mcl
+	url = https://github.com/huyuguang/mcl

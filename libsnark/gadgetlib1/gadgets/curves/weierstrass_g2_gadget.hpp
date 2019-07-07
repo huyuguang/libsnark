@@ -16,7 +16,7 @@
 #define WEIERSTRASS_G2_GADGET_HPP_
 
 #include <memory>
-
+#include <msvc_hack.h>
 #include <libff/algebra/curves/public_params.hpp>
 
 #include <libsnark/gadgetlib1/gadget.hpp>
@@ -49,7 +49,7 @@ public:
 
     // (See a comment in r1cs_ppzksnark_verifier_gadget.hpp about why
     // we mark this function noinline.) TODO: remove later
-    static size_t __attribute__((noinline)) size_in_bits();
+    static size_t __noinline__ size_in_bits();
     static size_t num_variables();
 };
 

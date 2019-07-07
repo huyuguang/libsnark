@@ -42,12 +42,12 @@ template<typename FieldT>
 void get_benes_size(const size_t n, const size_t l, size_t &num_constraints, size_t &num_variables)
 {
     const size_t t = libff::log2(n);
-    assert(n == 1ul<<t);
+    assert(n == ((size_t)1)<<t);
 
     protoboard<FieldT> pb;
 
-    std::vector<pb_variable_array<FieldT> > randbits(1ul<<t), outbits(1ul<<t);
-    for (size_t y = 0; y < 1ul<<t; ++y)
+    std::vector<pb_variable_array<FieldT> > randbits(((size_t)1)<<t), outbits(((size_t)1)<<t);
+    for (size_t y = 0; y < ((size_t)1)<<t; ++y)
     {
         randbits[y].allocate(pb, l, FMT("", "randbits_%zu", y));
         outbits[y].allocate(pb, l, FMT("", "outbits_%zu", y));
@@ -69,7 +69,7 @@ void profile_routing_gadgets(const size_t l)
         size_t as_waksman_constr, as_waksman_vars;
         get_as_waksman_size<FieldT>(n, l, as_waksman_constr, as_waksman_vars);
 
-        const size_t rounded_n = 1ul<<libff::log2(n);
+        const size_t rounded_n = ((size_t)1)<<libff::log2(n);
         size_t benes_constr, benes_vars;
         get_benes_size<FieldT>(rounded_n, l, benes_constr, benes_vars);
 
@@ -87,7 +87,7 @@ void profile_num_switches(const size_t l)
         size_t as_waksman_constr, as_waksman_vars;
         get_as_waksman_size<FieldT>(n, l, as_waksman_constr, as_waksman_vars);
 
-        const size_t rounded_n = 1ul<<libff::log2(n);
+        const size_t rounded_n = ((size_t)1)<<libff::log2(n);
         size_t benes_constr, benes_vars;
         get_benes_size<FieldT>(rounded_n, l, benes_constr, benes_vars);
 

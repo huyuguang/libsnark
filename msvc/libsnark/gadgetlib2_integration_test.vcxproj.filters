@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\tests\integration_UTEST.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\examples\simple_example.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(SolutionDir)\..\libsnark\gadgetlib2\examples\simple_example.hpp" />
+    <ClInclude Include="$(SolutionDir)\..\libsnark\relations\constraint_satisfaction_problems\r1cs\examples\r1cs_examples.hpp" />
+    <ClInclude Include="$(SolutionDir)\..\libsnark\zk_proof_systems\ppzksnark\r1cs_ppzksnark\examples\run_r1cs_ppzksnark.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(SolutionDir)\..\libsnark\relations\constraint_satisfaction_problems\r1cs\examples\r1cs_examples.tcc" />
+    <None Include="$(SolutionDir)\..\libsnark\zk_proof_systems\ppzksnark\r1cs_ppzksnark\examples\run_r1cs_ppzksnark.tcc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{40096F9C-E79D-35DF-93B3-072981FFA9F7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{2A9A1EAE-F2A3-3A90-A831-AB1031EAAE75}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

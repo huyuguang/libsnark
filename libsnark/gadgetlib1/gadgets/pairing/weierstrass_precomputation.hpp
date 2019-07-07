@@ -52,49 +52,54 @@ public:
 template<typename ppT>
 class precompute_G1_gadget : public gadget<libff::Fr<ppT> > {
 public:
-    typedef libff::Fqe<other_curve<ppT> > FqeT;
-    typedef libff::Fqk<other_curve<ppT> > FqkT;
+	typedef libff::Fqe<other_curve<ppT> > FqeT;
+	typedef libff::Fqk<other_curve<ppT> > FqkT;
 
-    G1_precomputation<ppT> &precomp; // must be a reference.
+	enum {
+		Degree = libff::Fqk<other_curve<ppT> >::extension_degree(),
+	};
 
-    /* two possible pre-computations one for mnt4 and one for mnt6 */
-    template<typename FieldT>
-    precompute_G1_gadget(protoboard<FieldT> &pb,
-                         const G1_variable<ppT> &P,
-                         G1_precomputation<ppT> &precomp, // will allocate this inside
-                         const std::string &annotation_prefix,
-                         const typename std::enable_if<libff::Fqk<other_curve<ppT> >::extension_degree() == 4, FieldT>::type& = FieldT()) :
-            gadget<FieldT>(pb, annotation_prefix),
-            precomp(precomp)
-    {
-        pb_linear_combination<FieldT> c0, c1;
-        c0.assign(pb, P.Y * ((libff::mnt4_twist).squared().c0));
-        c1.assign(pb, P.Y * ((libff::mnt4_twist).squared().c1));
+	G1_precomputation<ppT> &precomp; // must be a reference.
 
-        precomp.P.reset(new G1_variable<ppT>(P));
-        precomp.PY_twist_squared.reset(new Fqe_variable<ppT>(pb, c0, c1, FMT(annotation_prefix, " PY_twist_squared")));
-    }
+																	 /* two possible pre-computations one for mnt4 and one for mnt6 */
+	template<typename FieldT>
+	precompute_G1_gadget(protoboard<FieldT> &pb,
+		const G1_variable<ppT> &P,
+		G1_precomputation<ppT> &precomp, // will allocate this inside
+		const std::string &annotation_prefix,
+		const typename std::enable_if<Degree == 4, FieldT>::type& = FieldT()) :
+		gadget<FieldT>(pb, annotation_prefix),
+		precomp(precomp)
+	{
+		pb_linear_combination<FieldT> c0, c1;
+		c0.assign(pb, P.Y * ((libff::mnt4_twist).squared().c0));
+		c1.assign(pb, P.Y * ((libff::mnt4_twist).squared().c1));
 
-    template<typename FieldT>
-    precompute_G1_gadget(protoboard<FieldT> &pb,
-                         const G1_variable<ppT> &P,
-                         G1_precomputation<ppT> &precomp, // will allocate this inside
-                         const std::string &annotation_prefix,
-                         const typename std::enable_if<libff::Fqk<other_curve<ppT> >::extension_degree() == 6, FieldT>::type& = FieldT()) :
-        gadget<FieldT>(pb, annotation_prefix),
-            precomp(precomp)
-    {
-        pb_linear_combination<FieldT> c0, c1, c2;
-        c0.assign(pb, P.Y * ((libff::mnt6_twist).squared().c0));
-        c1.assign(pb, P.Y * ((libff::mnt6_twist).squared().c1));
-        c2.assign(pb, P.Y * ((libff::mnt6_twist).squared().c2));
+		precomp.P.reset(new G1_variable<ppT>(P));
+		precomp.PY_twist_squared.reset(new Fqe_variable<ppT>(pb, c0, c1, FMT(annotation_prefix, " PY_twist_squared")));
+	}
 
-        precomp.P.reset(new G1_variable<ppT>(P));
-        precomp.PY_twist_squared.reset(new Fqe_variable<ppT>(pb, c0, c1, c2, FMT(annotation_prefix, " PY_twist_squared")));
-    }
+	template<typename FieldT>
+	precompute_G1_gadget(protoboard<FieldT> &pb,
+		const G1_variable<ppT> &P,
+		G1_precomputation<ppT> &precomp, // will allocate this inside
+		const std::string &annotation_prefix,
+		const typename std::enable_if<Degree == 6, FieldT>::type& = FieldT()) :
+		gadget<FieldT>(pb, annotation_prefix),
+		precomp(precomp)
+	{
+		pb_linear_combination<FieldT> c0, c1, c2;
+		c0.assign(pb, P.Y * ((libff::mnt6_twist).squared().c0));
+		c1.assign(pb, P.Y * ((libff::mnt6_twist).squared().c1));
+		c2.assign(pb, P.Y * ((libff::mnt6_twist).squared().c2));
 
-    void generate_r1cs_constraints();
-    void generate_r1cs_witness();
+		precomp.P.reset(new G1_variable<ppT>(P));
+		precomp.PY_twist_squared.reset(new Fqe_variable<ppT>(pb, c0, c1, c2, FMT(annotation_prefix, " PY_twist_squared")));
+	}
+
+
+	void generate_r1cs_constraints();
+	void generate_r1cs_witness();
 };
 
 template<typename ppT>

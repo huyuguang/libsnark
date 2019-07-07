@@ -14,6 +14,8 @@
 #ifndef EXPONENTIATION_GADGET_TCC_
 #define EXPONENTIATION_GADGET_TCC_
 
+#include "msvc_hack.h"
+
 namespace libsnark {
 
 template<typename FpkT, template<class> class Fpk_variableT, template<class> class Fpk_mul_gadgetT, template<class> class Fpk_sqr_gadgetT, mp_size_t m>
@@ -32,7 +34,7 @@ exponentiation_gadget<FpkT, Fpk_variableT, Fpk_mul_gadgetT, Fpk_sqr_gadgetT, m>:
     dbl_count = 0;
 
     bool found_nonzero = false;
-    for (long i = NAF.size() - 1; i >= 0; --i)
+    for (ssize_t i = NAF.size() - 1; i >= 0; --i)
     {
         if (found_nonzero)
         {
@@ -71,7 +73,7 @@ exponentiation_gadget<FpkT, Fpk_variableT, Fpk_mul_gadgetT, Fpk_sqr_gadgetT, m>:
 
     size_t dbl_id = 0, add_id = 0, sub_id = 0, intermed_id = 0;
 
-    for (long i = NAF.size() - 1; i >= 0; --i)
+    for (ssize_t i = NAF.size() - 1; i >= 0; --i)
     {
         if (found_nonzero)
         {
@@ -140,7 +142,7 @@ void exponentiation_gadget<FpkT, Fpk_variableT, Fpk_mul_gadgetT, Fpk_sqr_gadgetT
     bool found_nonzero = false;
     size_t dbl_id = 0, add_id = 0, sub_id = 0, intermed_id = 0;
 
-    for (long i = NAF.size() - 1; i >= 0; --i)
+    for (ssize_t i = NAF.size() - 1; i >= 0; --i)
     {
         if (found_nonzero)
         {

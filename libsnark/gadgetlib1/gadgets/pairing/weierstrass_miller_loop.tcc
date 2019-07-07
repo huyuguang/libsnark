@@ -177,8 +177,8 @@ mnt_miller_loop_gadget<ppT>::mnt_miller_loop_gadget(protoboard<FieldT> &pb,
     f_count = add_count = dbl_count = 0;
 
     bool found_nonzero = false;
-    std::vector<long> NAF = find_wnaf(1, loop_count);
-    for (long i = NAF.size()-1; i >= 0; --i)
+    std::vector<int64_t> NAF = find_wnaf(1, loop_count);
+    for (ssize_t i = NAF.size()-1; i >= 0; --i)
     {
         if (!found_nonzero)
         {
@@ -218,7 +218,7 @@ mnt_miller_loop_gadget<ppT>::mnt_miller_loop_gadget(protoboard<FieldT> &pb,
     size_t prec_id = 0;
 
     found_nonzero = false;
-    for (long i = NAF.size()-1; i >= 0; --i)
+    for (ssize_t i = NAF.size()-1; i >= 0; --i)
     {
         if (!found_nonzero)
         {
@@ -283,8 +283,8 @@ void mnt_miller_loop_gadget<ppT>::generate_r1cs_witness()
     const auto &loop_count = pairing_selector<ppT>::pairing_loop_count;
 
     bool found_nonzero = false;
-    std::vector<long> NAF = find_wnaf(1, loop_count);
-    for (long i = NAF.size()-1; i >= 0; --i)
+    std::vector<int64_t> NAF = find_wnaf(1, loop_count);
+    for (ssize_t i = NAF.size()-1; i >= 0; --i)
     {
         if (!found_nonzero)
         {
@@ -370,8 +370,8 @@ gadget<FieldT>(pb, annotation_prefix), prec_P1(prec_P1), prec_Q1(prec_Q1), prec_
     f_count = add_count = dbl_count = 0;
 
     bool found_nonzero = false;
-    std::vector<long> NAF = find_wnaf(1, loop_count);
-    for (long i = NAF.size()-1; i >= 0; --i)
+    std::vector<int64_t> NAF = find_wnaf(1, loop_count);
+    for (ssize_t i = NAF.size()-1; i >= 0; --i)
     {
         if (!found_nonzero)
         {
@@ -417,7 +417,7 @@ gadget<FieldT>(pb, annotation_prefix), prec_P1(prec_P1), prec_Q1(prec_Q1), prec_
     size_t prec_id = 0;
 
     found_nonzero = false;
-    for (long i = NAF.size()-1; i >= 0; --i)
+    for (ssize_t i = NAF.size()-1; i >= 0; --i)
     {
         if (!found_nonzero)
         {
@@ -501,8 +501,8 @@ void mnt_e_over_e_miller_loop_gadget<ppT>::generate_r1cs_witness()
     const auto &loop_count = pairing_selector<ppT>::pairing_loop_count;
 
     bool found_nonzero = false;
-    std::vector<long> NAF = find_wnaf(1, loop_count);
-    for (long i = NAF.size()-1; i >= 0; --i)
+    std::vector<int64_t> NAF = find_wnaf(1, loop_count);
+    for (ssize_t i = NAF.size()-1; i >= 0; --i)
     {
         if (!found_nonzero)
         {
@@ -618,8 +618,8 @@ gadget<FieldT>(pb, annotation_prefix), prec_P1(prec_P1), prec_Q1(prec_Q1), prec_
     f_count = add_count = dbl_count = 0;
 
     bool found_nonzero = false;
-    std::vector<long> NAF = find_wnaf(1, loop_count);
-    for (long i = NAF.size()-1; i >= 0; --i)
+    std::vector<int64_t> NAF = find_wnaf(1, loop_count);
+    for (ssize_t i = NAF.size()-1; i >= 0; --i)
     {
         if (!found_nonzero)
         {
@@ -671,7 +671,7 @@ gadget<FieldT>(pb, annotation_prefix), prec_P1(prec_P1), prec_Q1(prec_Q1), prec_
     size_t prec_id = 0;
 
     found_nonzero = false;
-    for (long i = NAF.size()-1; i >= 0; --i)
+    for (ssize_t i = NAF.size()-1; i >= 0; --i)
     {
         if (!found_nonzero)
         {
@@ -772,8 +772,8 @@ void mnt_e_times_e_over_e_miller_loop_gadget<ppT>::generate_r1cs_witness()
     const auto &loop_count = pairing_selector<ppT>::pairing_loop_count;
 
     bool found_nonzero = false;
-    std::vector<long> NAF = find_wnaf(1, loop_count);
-    for (long i = NAF.size()-1; i >= 0; --i)
+    std::vector<int64_t> NAF = find_wnaf(1, loop_count);
+    for (ssize_t i = NAF.size()-1; i >= 0; --i)
     {
         if (!found_nonzero)
         {

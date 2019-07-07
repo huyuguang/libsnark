@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\common\double.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\common\profiling.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\common\utils.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\alt_bn128\alt_bn128_g1.cpp">
+      <Filter>alt_bn128</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\alt_bn128\alt_bn128_g2.cpp">
+      <Filter>alt_bn128</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\alt_bn128\alt_bn128_init.cpp">
+      <Filter>alt_bn128</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\alt_bn128\alt_bn128_pairing.cpp">
+      <Filter>alt_bn128</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\alt_bn128\alt_bn128_pp.cpp">
+      <Filter>alt_bn128</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\edwards\edwards_g1.cpp">
+      <Filter>edwards</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\edwards\edwards_g2.cpp">
+      <Filter>edwards</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\edwards\edwards_init.cpp">
+      <Filter>edwards</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\edwards\edwards_pairing.cpp">
+      <Filter>edwards</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\edwards\edwards_pp.cpp">
+      <Filter>edwards</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt4\mnt4_g1.cpp">
+      <Filter>mnt</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt4\mnt4_g2.cpp">
+      <Filter>mnt</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt4\mnt4_init.cpp">
+      <Filter>mnt</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt4\mnt4_pairing.cpp">
+      <Filter>mnt</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt4\mnt4_pp.cpp">
+      <Filter>mnt</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt6\mnt6_g1.cpp">
+      <Filter>mnt</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt6\mnt6_g2.cpp">
+      <Filter>mnt</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt6\mnt6_init.cpp">
+      <Filter>mnt</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt6\mnt6_pairing.cpp">
+      <Filter>mnt</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt6\mnt6_pp.cpp">
+      <Filter>mnt</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt46_common.cpp">
+      <Filter>mnt</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\bn128\bn128_g1.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\bn128\bn128_g2.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\bn128\bn128_gt.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\bn128\bn128_init.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\bn128\bn128_pairing.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\bn128\bn128_pp.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_g1.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_g2.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_gt.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_init.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_pairing.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_pp.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{40096F9C-E79D-35DF-93B3-072981FFA9F7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bn128">
+      <UniqueIdentifier>{1ae05c2c-13bb-4779-b2e4-f3793fb12e3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="alt_bn128">
+      <UniqueIdentifier>{59bc7b9b-2776-4a1b-8e2b-edd26db872da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="edwards">
+      <UniqueIdentifier>{653fc212-c185-4296-9ff9-3d3dd5415e62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mnt">
+      <UniqueIdentifier>{6cdc833d-6552-498a-b542-7db1bff5ea5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mcl_bn128">
+      <UniqueIdentifier>{e096b87d-1982-4322-8b82-adb133d02d63}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\bn_utils.hpp" />
+    <ClInclude Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_g1.hpp" />
+    <ClInclude Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_g2.hpp" />
+    <ClInclude Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_gt.hpp" />
+    <ClInclude Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_init.hpp" />
+    <ClInclude Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_pairing.hpp" />
+    <ClInclude Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_pp.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\bn128\bn_utils.tcc" />
+    <None Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\bn_utils.tcc" />
+  </ItemGroup>
+</Project>

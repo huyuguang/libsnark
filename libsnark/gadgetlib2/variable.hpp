@@ -40,7 +40,7 @@ typedef ::std::shared_ptr<Variable> VariablePtr;
 typedef ::std::shared_ptr<VariableArray> VariableArrayPtr;
 typedef ::std::unique_ptr<FElemInterface> FElemInterfacePtr;
 typedef ::std::shared_ptr<Protoboard> ProtoboardPtr;
-typedef unsigned long VarIndex_t;
+typedef size_t VarIndex_t;
 
 // Naming Conventions:
 // R1P == Rank 1 Prime characteristic
@@ -62,7 +62,7 @@ typedef unsigned long VarIndex_t;
  */
 class FElemInterface {
 public:
-    virtual FElemInterface& operator=(const long n) = 0;
+    virtual FElemInterface& operator=(const mp_limb_t n) = 0;
     /// FConst will be field agnostic, allowing us to hold values such as 0 and 1 without knowing
     /// the underlying field. This assignment operator will convert to the correct field element.
     virtual FElemInterface& operator=(const FConst& src) = 0;
@@ -75,13 +75,13 @@ public:
     virtual bool operator==(const FConst& other) const = 0;
     /// This operator is not always mathematically well defined. 'n' will be checked in runtime
     /// for fields in which integer values are not well defined.
-    virtual bool operator==(const long n) const = 0;
+    virtual bool operator==(const mp_limb_t n) const = 0;
     /// @returns a unique_ptr to a copy of the current element.
     virtual FElemInterfacePtr clone() const = 0;
     virtual FElemInterfacePtr inverse() const = 0;
-    virtual long asLong() const = 0;
+    virtual mp_limb_t asLong() const = 0;
     virtual int getBit(unsigned int i) const = 0;
-    virtual FElemInterface& power(long exponent) = 0;
+    virtual FElemInterface& power(mp_limb_t exponent) = 0;
     virtual ~FElemInterface(){};
 }; // class FElemInterface
 
@@ -89,9 +89,9 @@ public:
 /***   END OF CLASS DEFINITION   ***/
 /***********************************/
 
-inline bool operator==(const long first, const FElemInterface& second) {return second == first;}
-inline bool operator!=(const long first, const FElemInterface& second) {return !(first == second);}
-inline bool operator!=(const FElemInterface& first, const long second) {return !(first == second);}
+inline bool operator==(const mp_limb_t first, const FElemInterface& second) {return second == first;}
+inline bool operator!=(const mp_limb_t first, const FElemInterface& second) {return !(first == second);}
+inline bool operator!=(const FElemInterface& first, const mp_limb_t second) {return !(first == second);}
 inline bool operator!=(const FElemInterface& first, const FElemInterface& second) {
     return !(first == second);
 }
@@ -116,15 +116,15 @@ public:
     /// to point to a field specific element with the same value as the constant which it held.
     void promoteToFieldType(FieldType type);
     FElem();
-    FElem(const long n);
+    FElem(const mp_limb_t n);
     FElem(const int i);
-    FElem(const size_t n);
+    //FElem(const size_t n);
     FElem(const Fp& elem);
     FElem(const FElem& src);
 
     FElem& operator=(const FElem& other);
     FElem& operator=(FElem&& other);
-    FElem& operator=(const long i) { *elem_ = i; return *this;}
+    FElem& operator=(const mp_limb_t i) { *elem_ = i; return *this;}
     ::std::string asString() const {return elem_->asString();}
     FieldType fieldType() const {return elem_->fieldType();}
     bool operator==(const FElem& other) const {return *elem_ == *other.elem_;}
@@ -133,9 +133,9 @@ public:
     FElem& operator-=(const FElem& other);
     FElem operator-() const {FElem retval(0); retval -= FElem(*elem_); return retval;}
     FElem inverse(const FieldType& fieldType);
-    long asLong() const {return elem_->asLong();}
+	mp_limb_t asLong() const {return elem_->asLong();}
     int getBit(unsigned int i, const FieldType& fieldType);
-    friend FElem power(const FElem& base, long exponent);
+    friend FElem power(const FElem& base, mp_limb_t exponent);
 
     inline friend ::std::ostream& operator<<(::std::ostream& os, const FElem& elem) {
        return os << elem.elem_->asString();
@@ -148,10 +148,10 @@ inline bool operator!=(const FElem& first, const FElem& second) {return !(first 
 
 /// These operators are not always mathematically well defined. The long will be checked in runtime
 /// for fields in which values other than 0 and 1 are not well defined.
-inline bool operator==(const FElem& first, const long second) {return first == FElem(second);}
-inline bool operator==(const long first, const FElem& second) {return second == first;}
-inline bool operator!=(const FElem& first, const long second) {return !(first == second);}
-inline bool operator!=(const long first, const FElem& second) {return !(first == second);}
+inline bool operator==(const FElem& first, const mp_limb_t second) {return first == FElem(second);}
+inline bool operator==(const mp_limb_t first, const FElem& second) {return second == first;}
+inline bool operator!=(const FElem& first, const mp_limb_t second) {return !(first == second);}
+inline bool operator!=(const mp_limb_t first, const FElem& second) {return !(first == second);}
 
 /***********************************/
 /***   END OF CLASS DEFINITION   ***/
@@ -177,26 +177,26 @@ inline bool operator!=(const long first, const FElem& second) {return !(first ==
 */
 class FConst : public FElemInterface {
 private:
-    long contents_;
-    explicit FConst(const long n) : contents_(n) {}
+	mp_limb_t contents_;
+    explicit FConst(const mp_limb_t n) : contents_(n) {}
 public:
-    virtual FConst& operator=(const long n) {contents_ = n; return *this;}
+    virtual FConst& operator=(const mp_limb_t n) {contents_ = n; return *this;}
     virtual FConst& operator=(const FConst& src) {contents_ = src.contents_; return *this;}
-    virtual ::std::string asString() const {return GADGETLIB2_FMT("%ld",contents_);}
+    virtual ::std::string asString() const {return GADGETLIB2_FMT("%zd",contents_);}
     virtual FieldType fieldType() const {return AGNOSTIC;}
     virtual FConst& operator+=(const FElemInterface& other);
     virtual FConst& operator-=(const FElemInterface& other);
     virtual FConst& operator*=(const FElemInterface& other);
     virtual bool operator==(const FElemInterface& other) const {return other == *this;}
     virtual bool operator==(const FConst& other) const {return contents_ == other.contents_;}
-    virtual bool operator==(const long n) const {return contents_ == n;}
+    virtual bool operator==(const mp_limb_t n) const {return contents_ == n;}
     /// @return a unique_ptr to a new copy of the element
     virtual FElemInterfacePtr clone() const {return FElemInterfacePtr(new FConst(*this));}
     /// @return a unique_ptr to a new copy of the element's multiplicative inverse
     virtual FElemInterfacePtr inverse() const;
-    long asLong() const {return contents_;}
+	mp_limb_t asLong() const {return contents_;}
     int getBit(unsigned int i) const { libff::UNUSED(i); GADGETLIB_FATAL("Cannot get bit from FConst."); }
-    virtual FElemInterface& power(long exponent);
+    virtual FElemInterface& power(mp_limb_t exponent);
 
     friend class FElem; // allow constructor call
 }; // class FConst
@@ -223,22 +223,22 @@ public:
 
     explicit R1P_Elem(const Fp& elem) : elem_(elem) {}
     virtual R1P_Elem& operator=(const FConst& src) {elem_ = src.asLong(); return *this;}
-    virtual R1P_Elem& operator=(const long n) {elem_ = Fp(n); return *this;}
-    virtual ::std::string asString() const {return GADGETLIB2_FMT("%u", elem_.as_ulong());}
+    virtual R1P_Elem& operator=(const mp_limb_t n) {elem_ = Fp(n); return *this;}
+    virtual ::std::string asString() const {return GADGETLIB2_FMT("%ull", (uint64_t)elem_.as_ulong());}
     virtual FieldType fieldType() const {return R1P;}
     virtual R1P_Elem& operator+=(const FElemInterface& other);
     virtual R1P_Elem& operator-=(const FElemInterface& other);
     virtual R1P_Elem& operator*=(const FElemInterface& other);
     virtual bool operator==(const FElemInterface& other) const;
     virtual bool operator==(const FConst& other) const {return elem_ == Fp(other.asLong());}
-    virtual bool operator==(const long n) const {return elem_ == Fp(n);}
+    virtual bool operator==(const mp_limb_t n) const {return elem_ == Fp(n);}
     /// @return a unique_ptr to a new copy of the element
     virtual FElemInterfacePtr clone() const {return FElemInterfacePtr(new R1P_Elem(*this));}
     /// @return a unique_ptr to a new copy of the element's multiplicative inverse
     virtual FElemInterfacePtr inverse() const;
-    long asLong() const;
+	mp_limb_t asLong() const;
     int getBit(unsigned int i) const {return elem_.as_bigint().test_bit(i);}
-    virtual FElemInterface& power(long exponent) {elem_^= exponent; return *this;}
+    virtual FElemInterface& power(mp_limb_t exponent) {elem_^= exponent; return *this;}
 
     friend class FElem; // allow constructor call
     friend class GadgetLibAdapter;
@@ -434,7 +434,7 @@ private:
 public:
     LinearTerm(const Variable& v) : variable_(v), coeff_(1) {}
     LinearTerm(const Variable& v, const FElem& coeff) : variable_(v), coeff_(coeff) {}
-    LinearTerm(const Variable& v, long n) : variable_(v), coeff_(n) {}
+    LinearTerm(const Variable& v, mp_limb_t n) : variable_(v), coeff_(n) {}
     LinearTerm operator-() const {return LinearTerm(variable_, -coeff_);}
     LinearTerm& operator*=(const FElem& other) {coeff_ *= other; return *this;}
     FieldType fieldtype() const {return coeff_.fieldType();}
@@ -469,7 +469,7 @@ public:
     LinearCombination() : linearTerms_(), constant_(0) {}
     LinearCombination(const Variable& var) : linearTerms_(1,var), constant_(0) {}
     LinearCombination(const LinearTerm& linTerm) : linearTerms_(1,linTerm), constant_(0) {}
-    LinearCombination(long i) : linearTerms_(), constant_(i) {}
+    LinearCombination(mp_limb_t i) : linearTerms_(), constant_(i) {}
     LinearCombination(const FElem& elem) : linearTerms_(), constant_(elem) {}
 
     LinearCombination& operator+=(const LinearCombination& other);

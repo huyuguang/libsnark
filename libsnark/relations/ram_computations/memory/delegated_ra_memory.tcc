@@ -27,7 +27,7 @@ libff::bit_vector delegated_ra_memory<HashT>::int_to_tree_elem(const size_t i) c
     libff::bit_vector v(value_size, false);
     for (size_t k = 0; k < value_size; ++k)
     {
-        v[k] = ((i & (1ul << k)) != 0);
+        v[k] = ((i & ((size_t)1 << k)) != 0);
     }
     return v;
 }
@@ -38,7 +38,7 @@ size_t delegated_ra_memory<HashT>::int_from_tree_elem(const libff::bit_vector &v
     size_t result = 0;
     for (size_t i = 0; i < value_size; ++i)
     {
-        result |= (v[i] ? 1ul : 0ul) << i;
+        result |= (v[i] ? (size_t)1 : (size_t)0) << i;
     }
 
     return result;
