@@ -270,8 +270,13 @@ Fetch dependencies from their GitHub repos:
 
 Create the Makefile:
 
-    $ mkdir build && cd build && cmake ..
+    $ mkdir build && cd build && cmake ..  
 
+    Or cmake with install path and options, for example:  
+    For linux:  
+    $ cmake -DCMAKE_INSTALL_PREFIX=../../install -DMULTICORE=ON -DWITH_PROCPS=OFF -DWITH_SUPERCOP=OFF -DCURVE=MCL_BN128 ..
+    For Osx:  
+    $ cmake -DCMAKE_INSTALL_PREFIX=../../install -DMULTICORE=OFF -DWITH_PROCPS=OFF -DWITH_SUPERCOP=OFF -DCURVE=MCL_BN128 -DUSE_ASM=OFF ..
 Then, to compile the library, tests, and profiling harness, run this within the `build` directory:
 
     $ make
@@ -308,12 +313,16 @@ using:
 
     $ cmake -DWITH_PROCPS=OFF ..
 
+### Building on Windows using MSVC
+
+Check msvc/README.md.
+
 ### Building on Mac OS X
 
 On Mac OS X, install GMP from MacPorts (`port install gmp`). Then disable the
 dependencies not easily supported under OS X, using:
 
-    $ cmake -DWITH_PROCPS=OFF ..
+    $ cmake -DWITH_PROCPS=OFF -DMULTICORE=OFF -DUSE_ASM=OFF ..
 
 MacPorts does not write its libraries into standard system folders, so you
 might need to explicitly provide the paths to the header files and libraries by
