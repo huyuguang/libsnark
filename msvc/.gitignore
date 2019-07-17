@@ -50,3 +50,4 @@ lib/
 Debug/
 Release/
 x64/
+include/
