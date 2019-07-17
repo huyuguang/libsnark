@@ -656,3 +656,10 @@ References
 [LICENSE]: LICENSE (LICENSE file in top directory of libsnark distribution)
 
 [AUTHORS]: AUTHORS (AUTHORS file in top directory of libsnark distribution)
+
+
+--------------------------------------------------------------------------------
+Update
+--------------------------------------------------------------------------------
+Add MCL_BN128 CURVE (depends on mcl) and get 30% performance improvement(for prove).
+Check depends/libff/libff/algebra/curves/mcl_bn128.
