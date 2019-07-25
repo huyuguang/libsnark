@@ -663,3 +663,19 @@ Update
 --------------------------------------------------------------------------------
 Add MCL_BN128 CURVE (depends on mcl) and get 30% performance improvement(for prove).
 Check depends/libff/libff/algebra/curves/mcl_bn128.
+
+2019/07/25  
+Add a compile switch to support compabible with ethsnark. Check the mcl_bn128_init.cpp, macro MCL_COMPATIBLE_BN128.  
+(The original mcl_bn128 used bn128 curve parameters, and the ethsnark uses alt_bn128. Most of the parameters are same, the only difference item is the generator of the G2.  )
+
+Note: since the ethsnark use uint256 to store a Fr and two Fr to store a G1, so not use Montgomery and point compression to make.  
+
+Use the following cmd instead:  
+cmake -DCMAKE_INSTALL_PREFIX=../../install -DMULTICORE=ON -DUSE_PT_COMPRESSION=OFF -DMONTGOMERY_OUTPUT=OFF -DBINARY_OUTPUT=OFF -DWITH_PROCPS=OFF -DWITH_SUPERCOP=OFF -DCURVE=MCL_BN128 -DUSE_ASM=ON ..  
+
+The proof format will be human-readable and easy to convert to the format which matches the ethsnark requirement.
+
+The following tests passed:
+1, Generate vk&pk through mcl_bn128 and load through alt_bn128.  
+2, Generate proof throught mcl_bn128 and verify through alt_bn128.  
+3, For the testing circuit, the prove time relation between alt_bn128:bn128:mcl_bn128 is 30:18:14.  
