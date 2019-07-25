@@ -325,7 +325,7 @@ void R1P_InnerProduct_Gadget::generateConstraints() {
     }
     // else (n > 1)
     addRank1Constraint(A_[0], B_[0], partialSums_[0], "A[0] * B[0] = partialSums[0]");
-    for(int i = 1; i <= n-2; ++i) {
+    for(int i = 1; i <= (int)(n-2); ++i) {
         addRank1Constraint(A_[i], B_[i], partialSums_[i] - partialSums_[i-1],
             GADGETLIB2_FMT("A[%u] * B[%u] = partialSums[%u] - partialSums[%u]", i, i, i, i-1));
     }
@@ -341,7 +341,7 @@ void R1P_InnerProduct_Gadget::generateWitness() {
     }
     // else (n > 1)
     val(partialSums_[0]) = val(A_[0]) * val(B_[0]);
-    for(int i = 1; i <= n-2; ++i) {
+    for(int i = 1; i <= (int)(n-2); ++i) {
         val(partialSums_[i]) = val(partialSums_[i-1]) + val(A_[i]) * val(B_[i]);
     }
     val(result_) = val(partialSums_[n-2]) + val(A_[n-1]) * val(B_[n-1]);
@@ -518,7 +518,7 @@ void R1P_CompressionPacking_Gadget::generateConstraints() {
     const auto n = unpacked_.size();
     LinearCombination packed;
     FElem two_i(R1P_Elem(1)); // Will hold 2^i
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < (int)n; ++i) {
         packed += unpacked_[i]*two_i;
         two_i += two_i;
         if (packingMode_ == PackingMode::UNPACK) {enforceBooleanity(unpacked_[i]);}
@@ -531,7 +531,7 @@ void R1P_CompressionPacking_Gadget::generateWitness() {
     if (packingMode_ == PackingMode::PACK) {
         FElem packedVal = 0;
         FElem two_i(R1P_Elem(1)); // will hold 2^i
-        for(int i = 0; i < n; ++i) {
+        for(int i = 0; i < (int)n; ++i) {
             GADGETLIB_ASSERT(val(unpacked_[i]).asLong() == 0 || val(unpacked_[i]).asLong() == 1,
                          GADGETLIB2_FMT("unpacked[%u]  = %u. Expected a Boolean value.", i,
                              val(unpacked_[i]).asLong()));
@@ -548,7 +548,7 @@ void R1P_CompressionPacking_Gadget::generateWitness() {
     }
     // else (UNPACK)
     GADGETLIB_ASSERT(packingMode_ == PackingMode::UNPACK, "Packing gadget created with unknown packing mode.");
-    for(int i = 0; i < n; ++i) {
+    for(int i = 0; i < (int)n; ++i) {
         val(unpacked_[i]) = val(packed_[0]).getBit(i, R1P);
     }
 }

@@ -12,7 +12,7 @@
  *****************************************************************************/
 
 #include <cassert>
-
+#include <boost/core/ignore_unused.hpp>
 #include <libsnark/common/routing_algorithms/as_waksman_routing_algorithm.hpp>
 
 namespace libsnark {
@@ -444,6 +444,7 @@ void as_waksman_route_inner(const size_t left,
 
                 /* The value on the left-hand side is either the same or not set. */
                 auto it = routing[left].find(lhs_switch);
+                boost::ignore_unused(it);
                 assert(it == routing[left].end() || it->second == lhs_switch_setting);
                 routing[left][lhs_switch] = lhs_switch_setting;
 
