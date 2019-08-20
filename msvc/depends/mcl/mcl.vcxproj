@@ -13,6 +13,64 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\depends\mcl\src\fp.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\array.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\atoi.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\benchmark.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\bit_operation.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\critical_section.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\crypto.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\endian.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\exception.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\hash.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\inttype.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\itoa.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\link_libeay32.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\link_mpir.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\link_ssleay32.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\mutex.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\option.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\random_generator.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\serializer.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\sha2.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\stream.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\test.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\unordered_map.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\xorshift.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\aggregate_sig.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\ahe.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\array.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\bls12_381.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\bn.h" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\bn.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\bn256.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\bn384.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\bn512.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\bn_c256.h" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\bn_c384.h" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\bn_c384_256.h" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\conversion.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\curve_type.h" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\ec.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\ecdsa.h" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\ecdsa.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\ecparam.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\elgamal.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\fp.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\fp_tower.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\gmp_util.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\impl\bn_c_impl.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\lagrange.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\op.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\operator.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\paillier.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\randgen.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\she.h" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\she.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\util.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\vint.hpp" />
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\window_method.hpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{718BC466-93CC-4608-8169-997BA0DDEDFD}</ProjectGuid>

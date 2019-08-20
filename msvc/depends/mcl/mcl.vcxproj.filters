@@ -1,6 +1,195 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\..\..\depends\mcl\src\fp.cpp" />
+    <Filter Include="src">
+      <UniqueIdentifier>{53e4d3b2-00cc-4f18-b4cb-8368a77354e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{96b066a9-65e4-4403-adea-08eae1d1801c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\mcl">
+      <UniqueIdentifier>{be399109-6409-45cb-87c0-735acdab3426}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\cybozu">
+      <UniqueIdentifier>{1638275d-32b0-4909-bffb-b301fc589c7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\mcl\impl">
+      <UniqueIdentifier>{f66e51f0-fd86-4e7c-a22f-8b47ac27b933}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\depends\mcl\src\fp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\aggregate_sig.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\ahe.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\array.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\bls12_381.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\bn.h">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\bn.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\bn_c256.h">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\bn_c384.h">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\bn_c384_256.h">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\bn256.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\bn384.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\bn512.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\conversion.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\curve_type.h">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\ec.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\ecdsa.h">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\ecdsa.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\ecparam.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\elgamal.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\fp.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\fp_tower.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\gmp_util.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\lagrange.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\op.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\operator.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\paillier.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\randgen.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\she.h">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\she.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\util.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\vint.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\window_method.hpp">
+      <Filter>include\mcl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\mcl\impl\bn_c_impl.hpp">
+      <Filter>include\mcl\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\array.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\atoi.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\benchmark.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\bit_operation.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\critical_section.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\crypto.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\endian.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\exception.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\hash.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\inttype.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\itoa.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\link_libeay32.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\link_mpir.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\link_ssleay32.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\mutex.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\option.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\random_generator.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\serializer.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\sha2.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\stream.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\test.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\unordered_map.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\depends\mcl\include\cybozu\xorshift.hpp">
+      <Filter>include\cybozu</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

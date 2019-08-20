@@ -1,31 +1,925 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="$(SolutionDir)\..\libsnark\common\data_structures\integer_permutation.cpp" />
-    <ClCompile Include="$(SolutionDir)\..\libsnark\common\data_structures\set_commitment.cpp" />
-    <ClCompile Include="$(SolutionDir)\..\libsnark\common\default_types\r1cs_ppzkpcd_pp.cpp" />
-    <ClCompile Include="$(SolutionDir)\..\libsnark\common\default_types\tinyram_ppzksnark_pp.cpp" />
-    <ClCompile Include="$(SolutionDir)\..\libsnark\common\default_types\tinyram_zksnark_pp.cpp" />
-    <ClCompile Include="$(SolutionDir)\..\libsnark\common\routing_algorithms\as_waksman_routing_algorithm.cpp" />
-    <ClCompile Include="$(SolutionDir)\..\libsnark\common\routing_algorithms\benes_routing_algorithm.cpp" />
-    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib1\constraint_profiling.cpp" />
-    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\adapters.cpp" />
-    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\constraint.cpp" />
-    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\gadget.cpp" />
-    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\infrastructure.cpp" />
-    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\integration.cpp" />
-    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\pp.cpp" />
-    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\protoboard.cpp" />
-    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\variable.cpp" />
-    <ClCompile Include="$(SolutionDir)\..\libsnark\relations\circuit_satisfaction_problems\tbcs\tbcs.cpp" />
-    <ClCompile Include="$(SolutionDir)\..\libsnark\relations\ram_computations\memory\memory_store_trace.cpp" />
-    <ClCompile Include="$(SolutionDir)\..\libsnark\relations\ram_computations\memory\ra_memory.cpp" />
-    <ClCompile Include="$(SolutionDir)\..\libsnark\relations\ram_computations\rams\fooram\fooram_aux.cpp" />
-    <ClCompile Include="$(SolutionDir)\..\libsnark\relations\ram_computations\rams\tinyram\tinyram_aux.cpp" />
+    <ClCompile Include="$(SolutionDir)\..\libsnark\common\data_structures\set_commitment.cpp">
+      <Filter>common\data_structures</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\common\data_structures\integer_permutation.cpp">
+      <Filter>common\data_structures</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\common\default_types\tinyram_zksnark_pp.cpp">
+      <Filter>common\default_types</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\common\default_types\tinyram_ppzksnark_pp.cpp">
+      <Filter>common\default_types</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\common\default_types\r1cs_ppzkpcd_pp.cpp">
+      <Filter>common\default_types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libsnark\common\default_types\r1cs_ppzkadsnark_pp.cpp">
+      <Filter>common\default_types</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\common\routing_algorithms\as_waksman_routing_algorithm.cpp">
+      <Filter>common\routing_algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\common\routing_algorithms\benes_routing_algorithm.cpp">
+      <Filter>common\routing_algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib1\constraint_profiling.cpp">
+      <Filter>gadgetlib1</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\adapters.cpp">
+      <Filter>gadgetlib2</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\constraint.cpp">
+      <Filter>gadgetlib2</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\gadget.cpp">
+      <Filter>gadgetlib2</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\infrastructure.cpp">
+      <Filter>gadgetlib2</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\integration.cpp">
+      <Filter>gadgetlib2</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\relations\ram_computations\memory\memory_store_trace.cpp">
+      <Filter>gadgetlib2</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\pp.cpp">
+      <Filter>gadgetlib2</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\variable.cpp">
+      <Filter>gadgetlib2</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\relations\ram_computations\rams\fooram\fooram_aux.cpp">
+      <Filter>relations\ram_computations\rams\fooram</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\relations\ram_computations\rams\tinyram\tinyram_aux.cpp">
+      <Filter>relations\ram_computations\rams\tinyram</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\gadgetlib2\protoboard.cpp">
+      <Filter>gadgetlib2</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\relations\circuit_satisfaction_problems\tbcs\tbcs.cpp">
+      <Filter>relations\circuit_satisfaction_problems\tbcs</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\libsnark\relations\ram_computations\memory\ra_memory.cpp">
+      <Filter>relations\ram_computations\memory</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{40096F9C-E79D-35DF-93B3-072981FFA9F7}</UniqueIdentifier>
+    <Filter Include="common">
+      <UniqueIdentifier>{8bdf16be-72da-4256-ad99-8a53c8a2b688}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gadgetlib1">
+      <UniqueIdentifier>{38e7b0ee-2ffd-4190-811f-32fadf142fb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gadgetlib2">
+      <UniqueIdentifier>{150e93ba-f22d-404d-bad0-1276786dbc01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="knowledge_commitment">
+      <UniqueIdentifier>{36acefda-98e1-4d74-9682-965231fe2684}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="reductions">
+      <UniqueIdentifier>{b7c0793b-dfbc-4dd7-ae7b-b5e4276c7f46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="relations">
+      <UniqueIdentifier>{fad6b30b-ac4f-4c6e-8f4d-bf6e7b825335}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zk_proof_systems">
+      <UniqueIdentifier>{352deaa5-6b03-4541-ad28-27f59352445f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\data_structures">
+      <UniqueIdentifier>{db1861df-856c-4095-b53b-7d5c5ae542a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\default_types">
+      <UniqueIdentifier>{6ba08267-5c1f-4090-9660-52aa3145b173}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\routing_algorithms">
+      <UniqueIdentifier>{ebcc6083-07de-42bd-9bb5-055051e97d6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gadgetlib1\gadgets">
+      <UniqueIdentifier>{312a0eb0-1fc5-4c26-9db2-af34f35de1cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gadgetlib1\gadgets\cpu_checkers">
+      <UniqueIdentifier>{cb234b3a-898f-4b95-a941-c65d437a3b43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gadgetlib1\gadgets\curves">
+      <UniqueIdentifier>{ce6b8b6d-7ddf-4e86-8a93-6e9311a67a8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gadgetlib1\gadgets\delegated_ra_memory">
+      <UniqueIdentifier>{982a0a95-6d94-416b-b5f8-debb1f9f49d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gadgetlib1\gadgets\fields">
+      <UniqueIdentifier>{1b46fa96-94fe-4873-909d-d18310ad5419}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gadgetlib1\gadgets\hashes">
+      <UniqueIdentifier>{0c26cd39-b844-4a4c-bf43-7af2511f7e8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gadgetlib1\gadgets\merkle_tree">
+      <UniqueIdentifier>{7da064cc-951d-489c-be68-4ea73e7685d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gadgetlib1\gadgets\pairing">
+      <UniqueIdentifier>{75d1c6c2-018b-40d6-9016-575f4f262a62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gadgetlib1\gadgets\routing">
+      <UniqueIdentifier>{2bcc4b99-4ce2-47be-aa7f-5315d11cf12d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gadgetlib1\gadgets\set_commitment">
+      <UniqueIdentifier>{d93eaf93-d88e-4b4c-a25a-b97394deb919}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gadgetlib1\gadgets\verifiers">
+      <UniqueIdentifier>{806eeec7-cf84-4d38-8059-e92b074893f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gadgetlib1\gadgets\cpu_checkers\fooram">
+      <UniqueIdentifier>{2527c3bb-5864-4e15-b8b7-f7fb3db9a28c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gadgetlib1\gadgets\cpu_checkers\tinyram">
+      <UniqueIdentifier>{16b62cce-382c-4cda-919e-063259f60406}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gadgetlib1\gadgets\cpu_checkers\fooram\components">
+      <UniqueIdentifier>{94087282-015c-4c7b-af9b-45cca9a43c81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gadgetlib1\gadgets\cpu_checkers\fooram\examples">
+      <UniqueIdentifier>{8d5b9a09-51b5-48b7-bf6b-751e751c3a1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gadgetlib1\gadgets\cpu_checkers\tinyram\components">
+      <UniqueIdentifier>{905dd2de-5b9b-4da1-8f93-8981828f5634}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gadgetlib1\gadgets\hashes\knapsack">
+      <UniqueIdentifier>{bd305cea-ecfd-4a69-8000-55f5652717d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gadgetlib1\gadgets\hashes\sha256">
+      <UniqueIdentifier>{80577683-6d7f-4d2f-9189-b877271eaf78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zk_proof_systems\pcd">
+      <UniqueIdentifier>{ae8c8d09-6350-4474-9654-5dfe594e430e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zk_proof_systems\ppzkadsnark">
+      <UniqueIdentifier>{bafe5795-3920-4102-9971-2edc86454f5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zk_proof_systems\ppzksnark">
+      <UniqueIdentifier>{0ef143d9-7583-4659-9f23-2af9a40f61fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zk_proof_systems\zksnark">
+      <UniqueIdentifier>{dfcdf827-313a-409e-a7b3-6a3da9cd430a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zk_proof_systems\pcd\r1cs_pcd">
+      <UniqueIdentifier>{cb96728a-269f-4693-a111-934da54e1a7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zk_proof_systems\pcd\r1cs_pcd\compliance_predicate">
+      <UniqueIdentifier>{c50c89d2-90d8-4fde-837c-d5ebff0dd1f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zk_proof_systems\pcd\r1cs_pcd\r1cs_mp_ppzkpcd">
+      <UniqueIdentifier>{7fcde4bc-9937-4682-a6b5-76527381add5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zk_proof_systems\pcd\r1cs_pcd\r1cs_sp_ppzkpcd">
+      <UniqueIdentifier>{6a42fd45-c6bf-4934-9f4f-c7ff8ada7070}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zk_proof_systems\ppzkadsnark\r1cs_ppzkadsnark">
+      <UniqueIdentifier>{99fca612-4c3f-406d-852e-5598ce8f346e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zk_proof_systems\ppzksnark\bacs_ppzksnark">
+      <UniqueIdentifier>{cecc1d31-fdef-4ad3-96d6-bff6525d3fff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zk_proof_systems\ppzksnark\r1cs_gg_ppzksnark">
+      <UniqueIdentifier>{d0d18cfc-9992-42b2-b5ba-5c48ea4320f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zk_proof_systems\ppzksnark\r1cs_ppzksnark">
+      <UniqueIdentifier>{f5e8a76c-841e-470d-acac-1ba842bccfd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zk_proof_systems\ppzksnark\r1cs_se_ppzksnark">
+      <UniqueIdentifier>{8c09a197-4bdf-4295-b500-677c05a5dbd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zk_proof_systems\ppzksnark\ram_ppzksnark">
+      <UniqueIdentifier>{b353e0d6-bb84-477b-a71d-809866305fde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zk_proof_systems\ppzksnark\tbcs_ppzksnark">
+      <UniqueIdentifier>{47dfe24d-3619-4ebd-bcd6-c6deb2bb52ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zk_proof_systems\ppzksnark\uscs_ppzksnark">
+      <UniqueIdentifier>{fa7dfcb4-f850-4f94-b8e8-be9e8a96a2fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="relations\arithmetic_programs">
+      <UniqueIdentifier>{cd51f397-c4e1-4ebf-9325-948f049e83e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="relations\circuit_satisfaction_problems">
+      <UniqueIdentifier>{0f287bbb-5549-46e7-9389-cd992b1da765}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="relations\constraint_satisfaction_problems">
+      <UniqueIdentifier>{ca565916-8ea5-45b2-a3ce-22f1d60991d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="relations\ram_computations">
+      <UniqueIdentifier>{d0df30c5-85e5-42b8-8629-ad8f01c3a911}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="relations\arithmetic_programs\qap">
+      <UniqueIdentifier>{e8ae6502-5581-489a-8453-095a595e297a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="relations\arithmetic_programs\ssp">
+      <UniqueIdentifier>{fe4b5507-bf7e-4020-b563-5b6a6574f33d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="relations\arithmetic_programs\sap">
+      <UniqueIdentifier>{4c5cf07b-c4ce-405f-9501-ab19cf14a2af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="relations\circuit_satisfaction_problems\bacs">
+      <UniqueIdentifier>{cf030505-230a-40a7-85e3-24e742d873af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="relations\circuit_satisfaction_problems\tbcs">
+      <UniqueIdentifier>{48bcd7f7-c40d-4ec7-b5ba-182a0afc7240}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="relations\constraint_satisfaction_problems\r1cs">
+      <UniqueIdentifier>{7817ff9b-ac31-44b5-8574-7b74695e46ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="relations\constraint_satisfaction_problems\uscs">
+      <UniqueIdentifier>{64768c54-86d1-4058-9854-718229f06fc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="relations\ram_computations\memory">
+      <UniqueIdentifier>{d43e2eeb-8d60-4d2c-a231-65cc349caced}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="relations\ram_computations\rams">
+      <UniqueIdentifier>{ae2b617e-482a-4db6-925a-684587c6c0d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="relations\ram_computations\rams\fooram">
+      <UniqueIdentifier>{096079e3-071c-44a5-954a-238cf22cd0e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="relations\ram_computations\rams\tinyram">
+      <UniqueIdentifier>{e5be0296-e86b-41a4-9531-972108a36c44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="reductions\bacs_to_r1cs">
+      <UniqueIdentifier>{0780f914-fa08-401f-bdae-2451561e8bfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="reductions\r1cs_to_qap">
+      <UniqueIdentifier>{a4cc52ca-8d0b-495f-a20e-6705ba64b954}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="reductions\r1cs_to_sap">
+      <UniqueIdentifier>{5cacc5a0-8f78-4eac-94ae-ee087906d772}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="reductions\ram_to_r1cs">
+      <UniqueIdentifier>{5c7da0c3-df9f-48be-84bf-ca479ee8a906}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="reductions\tbcs_to_uscs">
+      <UniqueIdentifier>{5f77ddc7-15a3-482b-991f-5996862131aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="reductions\uscs_to_ssp">
+      <UniqueIdentifier>{30b60d89-e7ca-42aa-9dfb-6d18265c0039}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="reductions\ram_to_r1cs\gadgets">
+      <UniqueIdentifier>{d30017d5-caa0-4c05-b99d-4caace974c13}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\libsnark\common\data_structures\accumulation_vector.hpp">
+      <Filter>common\data_structures</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\common\data_structures\integer_permutation.hpp">
+      <Filter>common\data_structures</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\common\data_structures\merkle_tree.hpp">
+      <Filter>common\data_structures</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\common\data_structures\set_commitment.hpp">
+      <Filter>common\data_structures</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\common\data_structures\sparse_vector.hpp">
+      <Filter>common\data_structures</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\common\default_types\bacs_ppzksnark_pp.hpp">
+      <Filter>common\default_types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\common\default_types\r1cs_gg_ppzksnark_pp.hpp">
+      <Filter>common\default_types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\common\default_types\r1cs_ppzkadsnark_pp.hpp">
+      <Filter>common\default_types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\common\default_types\r1cs_ppzkpcd_pp.hpp">
+      <Filter>common\default_types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\common\default_types\r1cs_ppzksnark_pp.hpp">
+      <Filter>common\default_types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\common\default_types\r1cs_se_ppzksnark_pp.hpp">
+      <Filter>common\default_types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\common\default_types\ram_ppzksnark_pp.hpp">
+      <Filter>common\default_types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\common\default_types\ram_zksnark_pp.hpp">
+      <Filter>common\default_types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\common\default_types\tbcs_ppzksnark_pp.hpp">
+      <Filter>common\default_types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\common\default_types\tinyram_ppzksnark_pp.hpp">
+      <Filter>common\default_types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\common\default_types\tinyram_zksnark_pp.hpp">
+      <Filter>common\default_types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\common\default_types\uscs_ppzksnark_pp.hpp">
+      <Filter>common\default_types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\common\routing_algorithms\as_waksman_routing_algorithm.hpp">
+      <Filter>common\routing_algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\common\routing_algorithms\benes_routing_algorithm.hpp">
+      <Filter>common\routing_algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\common\libsnark_serialization.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\constraint_profiling.hpp">
+      <Filter>gadgetlib1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadget.hpp">
+      <Filter>gadgetlib1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\pb_variable.hpp">
+      <Filter>gadgetlib1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\protoboard.hpp">
+      <Filter>gadgetlib1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\basic_gadgets.hpp">
+      <Filter>gadgetlib1\gadgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\gadget_from_r1cs.hpp">
+      <Filter>gadgetlib1\gadgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\fooram\components\bar_gadget.hpp">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\fooram\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\fooram\components\fooram_protoboard.hpp">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\fooram\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\fooram\fooram_cpu_checker.hpp">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\fooram</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\tinyram\tinyram_cpu_checker.hpp">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\tinyram</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\tinyram\components\alu_arithmetic.hpp">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\tinyram\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\tinyram\components\alu_control_flow.hpp">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\tinyram\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\tinyram\components\alu_gadget.hpp">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\tinyram\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\tinyram\components\argument_decoder_gadget.hpp">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\tinyram\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\tinyram\components\consistency_enforcer_gadget.hpp">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\tinyram\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\tinyram\components\memory_masking_gadget.hpp">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\tinyram\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\tinyram\components\tinyram_protoboard.hpp">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\tinyram\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\tinyram\components\word_variable_gadget.hpp">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\tinyram\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\curves\weierstrass_g1_gadget.hpp">
+      <Filter>gadgetlib1\gadgets\curves</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\curves\weierstrass_g2_gadget.hpp">
+      <Filter>gadgetlib1\gadgets\curves</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\delegated_ra_memory\memory_load_gadget.hpp">
+      <Filter>gadgetlib1\gadgets\delegated_ra_memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\delegated_ra_memory\memory_load_store_gadget.hpp">
+      <Filter>gadgetlib1\gadgets\delegated_ra_memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\fields\exponentiation_gadget.hpp">
+      <Filter>gadgetlib1\gadgets\fields</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\fields\fp2_gadgets.hpp">
+      <Filter>gadgetlib1\gadgets\fields</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\fields\fp3_gadgets.hpp">
+      <Filter>gadgetlib1\gadgets\fields</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\fields\fp4_gadgets.hpp">
+      <Filter>gadgetlib1\gadgets\fields</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\fields\fp6_gadgets.hpp">
+      <Filter>gadgetlib1\gadgets\fields</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\hashes\crh_gadget.hpp">
+      <Filter>gadgetlib1\gadgets\hashes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\hashes\digest_selector_gadget.hpp">
+      <Filter>gadgetlib1\gadgets\hashes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\hashes\hash_io.hpp">
+      <Filter>gadgetlib1\gadgets\hashes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\hashes\knapsack\knapsack_gadget.hpp">
+      <Filter>gadgetlib1\gadgets\hashes\knapsack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\hashes\sha256\sha256_aux.hpp">
+      <Filter>gadgetlib1\gadgets\hashes\sha256</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\hashes\sha256\sha256_components.hpp">
+      <Filter>gadgetlib1\gadgets\hashes\sha256</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\hashes\sha256\sha256_gadget.hpp">
+      <Filter>gadgetlib1\gadgets\hashes\sha256</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\merkle_tree\merkle_authentication_path_variable.hpp">
+      <Filter>gadgetlib1\gadgets\merkle_tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\merkle_tree\merkle_tree_check_read_gadget.hpp">
+      <Filter>gadgetlib1\gadgets\merkle_tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\merkle_tree\merkle_tree_check_update_gadget.hpp">
+      <Filter>gadgetlib1\gadgets\merkle_tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\verifiers\r1cs_ppzksnark_verifier_gadget.hpp">
+      <Filter>gadgetlib1\gadgets\verifiers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\set_commitment\set_commitment_gadget.hpp">
+      <Filter>gadgetlib1\gadgets\set_commitment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\set_commitment\set_membership_proof_variable.hpp">
+      <Filter>gadgetlib1\gadgets\set_commitment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\routing\as_waksman_routing_gadget.hpp">
+      <Filter>gadgetlib1\gadgets\routing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\routing\benes_routing_gadget.hpp">
+      <Filter>gadgetlib1\gadgets\routing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\pairing\mnt_pairing_params.hpp">
+      <Filter>gadgetlib1\gadgets\pairing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\pairing\pairing_checks.hpp">
+      <Filter>gadgetlib1\gadgets\pairing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\pairing\pairing_params.hpp">
+      <Filter>gadgetlib1\gadgets\pairing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\pairing\weierstrass_final_exponentiation.hpp">
+      <Filter>gadgetlib1\gadgets\pairing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\pairing\weierstrass_miller_loop.hpp">
+      <Filter>gadgetlib1\gadgets\pairing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib1\gadgets\pairing\weierstrass_precomputation.hpp">
+      <Filter>gadgetlib1\gadgets\pairing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib2\adapters.hpp">
+      <Filter>gadgetlib2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib2\constraint.hpp">
+      <Filter>gadgetlib2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib2\gadget.hpp">
+      <Filter>gadgetlib2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib2\gadgetMacros.hpp">
+      <Filter>gadgetlib2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib2\infrastructure.hpp">
+      <Filter>gadgetlib2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib2\integration.hpp">
+      <Filter>gadgetlib2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib2\pp.hpp">
+      <Filter>gadgetlib2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib2\protoboard.hpp">
+      <Filter>gadgetlib2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib2\variable.hpp">
+      <Filter>gadgetlib2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\gadgetlib2\variable_operators.hpp">
+      <Filter>gadgetlib2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\knowledge_commitment\kc_multiexp.hpp">
+      <Filter>knowledge_commitment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\knowledge_commitment\knowledge_commitment.hpp">
+      <Filter>knowledge_commitment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\pcd\r1cs_pcd\compliance_predicate\compliance_predicate.hpp">
+      <Filter>zk_proof_systems\pcd\r1cs_pcd\compliance_predicate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\pcd\r1cs_pcd\compliance_predicate\cp_handler.hpp">
+      <Filter>zk_proof_systems\pcd\r1cs_pcd\compliance_predicate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\pcd\r1cs_pcd\ppzkpcd_compliance_predicate.hpp">
+      <Filter>zk_proof_systems\pcd\r1cs_pcd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\pcd\r1cs_pcd\r1cs_pcd_params.hpp">
+      <Filter>zk_proof_systems\pcd\r1cs_pcd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\pcd\r1cs_pcd\r1cs_sp_ppzkpcd\r1cs_sp_ppzkpcd.hpp">
+      <Filter>zk_proof_systems\pcd\r1cs_pcd\r1cs_sp_ppzkpcd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\pcd\r1cs_pcd\r1cs_sp_ppzkpcd\r1cs_sp_ppzkpcd_params.hpp">
+      <Filter>zk_proof_systems\pcd\r1cs_pcd\r1cs_sp_ppzkpcd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\pcd\r1cs_pcd\r1cs_sp_ppzkpcd\sp_pcd_circuits.hpp">
+      <Filter>zk_proof_systems\pcd\r1cs_pcd\r1cs_sp_ppzkpcd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\pcd\r1cs_pcd\r1cs_mp_ppzkpcd\mp_pcd_circuits.hpp">
+      <Filter>zk_proof_systems\pcd\r1cs_pcd\r1cs_mp_ppzkpcd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\pcd\r1cs_pcd\r1cs_mp_ppzkpcd\r1cs_mp_ppzkpcd.hpp">
+      <Filter>zk_proof_systems\pcd\r1cs_pcd\r1cs_mp_ppzkpcd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\pcd\r1cs_pcd\r1cs_mp_ppzkpcd\r1cs_mp_ppzkpcd_params.hpp">
+      <Filter>zk_proof_systems\pcd\r1cs_pcd\r1cs_mp_ppzkpcd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\ppzkadsnark\r1cs_ppzkadsnark\r1cs_ppzkadsnark.hpp">
+      <Filter>zk_proof_systems\ppzkadsnark\r1cs_ppzkadsnark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\ppzkadsnark\r1cs_ppzkadsnark\r1cs_ppzkadsnark_params.hpp">
+      <Filter>zk_proof_systems\ppzkadsnark\r1cs_ppzkadsnark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\ppzkadsnark\r1cs_ppzkadsnark\r1cs_ppzkadsnark_prf.hpp">
+      <Filter>zk_proof_systems\ppzkadsnark\r1cs_ppzkadsnark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\ppzkadsnark\r1cs_ppzkadsnark\r1cs_ppzkadsnark_signature.hpp">
+      <Filter>zk_proof_systems\ppzkadsnark\r1cs_ppzkadsnark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\ppzksnark\bacs_ppzksnark\bacs_ppzksnark.hpp">
+      <Filter>zk_proof_systems\ppzksnark\bacs_ppzksnark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\ppzksnark\bacs_ppzksnark\bacs_ppzksnark_params.hpp">
+      <Filter>zk_proof_systems\ppzksnark\bacs_ppzksnark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\ppzksnark\uscs_ppzksnark\uscs_ppzksnark.hpp">
+      <Filter>zk_proof_systems\ppzksnark\uscs_ppzksnark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\ppzksnark\uscs_ppzksnark\uscs_ppzksnark_params.hpp">
+      <Filter>zk_proof_systems\ppzksnark\uscs_ppzksnark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\ppzksnark\tbcs_ppzksnark\tbcs_ppzksnark.hpp">
+      <Filter>zk_proof_systems\ppzksnark\tbcs_ppzksnark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\ppzksnark\tbcs_ppzksnark\tbcs_ppzksnark_params.hpp">
+      <Filter>zk_proof_systems\ppzksnark\tbcs_ppzksnark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\ppzksnark\ram_ppzksnark\ram_ppzksnark.hpp">
+      <Filter>zk_proof_systems\ppzksnark\ram_ppzksnark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\ppzksnark\ram_ppzksnark\ram_ppzksnark_params.hpp">
+      <Filter>zk_proof_systems\ppzksnark\ram_ppzksnark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\ppzksnark\r1cs_se_ppzksnark\r1cs_se_ppzksnark.hpp">
+      <Filter>zk_proof_systems\ppzksnark\r1cs_se_ppzksnark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\ppzksnark\r1cs_se_ppzksnark\r1cs_se_ppzksnark_params.hpp">
+      <Filter>zk_proof_systems\ppzksnark\r1cs_se_ppzksnark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\ppzksnark\r1cs_ppzksnark\r1cs_ppzksnark.hpp">
+      <Filter>zk_proof_systems\ppzksnark\r1cs_ppzksnark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\ppzksnark\r1cs_ppzksnark\r1cs_ppzksnark_params.hpp">
+      <Filter>zk_proof_systems\ppzksnark\r1cs_ppzksnark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\ppzksnark\r1cs_gg_ppzksnark\r1cs_gg_ppzksnark.hpp">
+      <Filter>zk_proof_systems\ppzksnark\r1cs_gg_ppzksnark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\zk_proof_systems\ppzksnark\r1cs_gg_ppzksnark\r1cs_gg_ppzksnark_params.hpp">
+      <Filter>zk_proof_systems\ppzksnark\r1cs_gg_ppzksnark</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\relations\variable.hpp">
+      <Filter>relations</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\relations\arithmetic_programs\qap\qap.hpp">
+      <Filter>relations\arithmetic_programs\qap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\relations\arithmetic_programs\ssp\ssp.hpp">
+      <Filter>relations\arithmetic_programs\ssp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\relations\arithmetic_programs\sap\sap.hpp">
+      <Filter>relations\arithmetic_programs\sap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\relations\circuit_satisfaction_problems\bacs\bacs.hpp">
+      <Filter>relations\circuit_satisfaction_problems\bacs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\relations\circuit_satisfaction_problems\tbcs\tbcs.hpp">
+      <Filter>relations\circuit_satisfaction_problems\tbcs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\relations\constraint_satisfaction_problems\uscs\uscs.hpp">
+      <Filter>relations\constraint_satisfaction_problems\uscs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\relations\constraint_satisfaction_problems\r1cs\r1cs.hpp">
+      <Filter>relations\constraint_satisfaction_problems\r1cs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\relations\ram_computations\memory\delegated_ra_memory.hpp">
+      <Filter>relations\ram_computations\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\relations\ram_computations\memory\memory_interface.hpp">
+      <Filter>relations\ram_computations\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\relations\ram_computations\memory\memory_store_trace.hpp">
+      <Filter>relations\ram_computations\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\relations\ram_computations\memory\ra_memory.hpp">
+      <Filter>relations\ram_computations\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\relations\ram_computations\rams\ram_params.hpp">
+      <Filter>relations\ram_computations\rams</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\relations\ram_computations\rams\fooram\fooram_aux.hpp">
+      <Filter>relations\ram_computations\rams\fooram</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\relations\ram_computations\rams\fooram\fooram_params.hpp">
+      <Filter>relations\ram_computations\rams\fooram</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\relations\ram_computations\rams\tinyram\tinyram_aux.hpp">
+      <Filter>relations\ram_computations\rams\tinyram</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\relations\ram_computations\rams\tinyram\tinyram_params.hpp">
+      <Filter>relations\ram_computations\rams\tinyram</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\reductions\bacs_to_r1cs\bacs_to_r1cs.hpp">
+      <Filter>reductions\bacs_to_r1cs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\reductions\uscs_to_ssp\uscs_to_ssp.hpp">
+      <Filter>reductions\uscs_to_ssp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\reductions\tbcs_to_uscs\tbcs_to_uscs.hpp">
+      <Filter>reductions\tbcs_to_uscs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\reductions\ram_to_r1cs\ram_to_r1cs.hpp">
+      <Filter>reductions\ram_to_r1cs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\reductions\ram_to_r1cs\gadgets\memory_checker_gadget.hpp">
+      <Filter>reductions\ram_to_r1cs\gadgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\reductions\ram_to_r1cs\gadgets\ram_universal_gadget.hpp">
+      <Filter>reductions\ram_to_r1cs\gadgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\reductions\ram_to_r1cs\gadgets\trace_lines.hpp">
+      <Filter>reductions\ram_to_r1cs\gadgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\reductions\r1cs_to_sap\r1cs_to_sap.hpp">
+      <Filter>reductions\r1cs_to_sap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libsnark\reductions\r1cs_to_qap\r1cs_to_qap.hpp">
+      <Filter>reductions\r1cs_to_qap</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\libsnark\common\data_structures\accumulation_vector.tcc">
+      <Filter>common\data_structures</Filter>
+    </None>
+    <None Include="..\..\libsnark\common\data_structures\merkle_tree.tcc">
+      <Filter>common\data_structures</Filter>
+    </None>
+    <None Include="..\..\libsnark\common\data_structures\set_commitment.tcc">
+      <Filter>common\data_structures</Filter>
+    </None>
+    <None Include="..\..\libsnark\common\data_structures\sparse_vector.tcc">
+      <Filter>common\data_structures</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadget.tcc">
+      <Filter>gadgetlib1</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\pb_variable.tcc">
+      <Filter>gadgetlib1</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\protoboard.tcc">
+      <Filter>gadgetlib1</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\basic_gadgets.tcc">
+      <Filter>gadgetlib1\gadgets</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\gadget_from_r1cs.tcc">
+      <Filter>gadgetlib1\gadgets</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\fooram\components\bar_gadget.tcc">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\fooram\components</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\fooram\components\fooram_protoboard.tcc">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\fooram\components</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\fooram\fooram_cpu_checker.tcc">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\fooram</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\tinyram\tinyram_cpu_checker.tcc">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\tinyram</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\tinyram\components\alu_arithmetic.tcc">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\tinyram\components</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\tinyram\components\alu_control_flow.tcc">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\tinyram\components</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\tinyram\components\alu_gadget.tcc">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\tinyram\components</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\tinyram\components\argument_decoder_gadget.tcc">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\tinyram\components</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\tinyram\components\consistency_enforcer_gadget.tcc">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\tinyram\components</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\tinyram\components\memory_masking_gadget.tcc">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\tinyram\components</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\cpu_checkers\tinyram\components\tinyram_protoboard.tcc">
+      <Filter>gadgetlib1\gadgets\cpu_checkers\tinyram\components</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\curves\weierstrass_g1_gadget.tcc">
+      <Filter>gadgetlib1\gadgets\curves</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\curves\weierstrass_g2_gadget.tcc">
+      <Filter>gadgetlib1\gadgets\curves</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\fields\exponentiation_gadget.tcc">
+      <Filter>gadgetlib1\gadgets\fields</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\fields\fp2_gadgets.tcc">
+      <Filter>gadgetlib1\gadgets\fields</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\fields\fp3_gadgets.tcc">
+      <Filter>gadgetlib1\gadgets\fields</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\fields\fp4_gadgets.tcc">
+      <Filter>gadgetlib1\gadgets\fields</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\fields\fp6_gadgets.tcc">
+      <Filter>gadgetlib1\gadgets\fields</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\hashes\digest_selector_gadget.tcc">
+      <Filter>gadgetlib1\gadgets\hashes</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\hashes\hash_io.tcc">
+      <Filter>gadgetlib1\gadgets\hashes</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\hashes\knapsack\knapsack_gadget.tcc">
+      <Filter>gadgetlib1\gadgets\hashes\knapsack</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\hashes\sha256\sha256_aux.tcc">
+      <Filter>gadgetlib1\gadgets\hashes\sha256</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\hashes\sha256\sha256_components.tcc">
+      <Filter>gadgetlib1\gadgets\hashes\sha256</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\hashes\sha256\sha256_gadget.tcc">
+      <Filter>gadgetlib1\gadgets\hashes\sha256</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\merkle_tree\merkle_authentication_path_variable.tcc">
+      <Filter>gadgetlib1\gadgets\merkle_tree</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\merkle_tree\merkle_tree_check_read_gadget.tcc">
+      <Filter>gadgetlib1\gadgets\merkle_tree</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\merkle_tree\merkle_tree_check_update_gadget.tcc">
+      <Filter>gadgetlib1\gadgets\merkle_tree</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\verifiers\r1cs_ppzksnark_verifier_gadget.tcc">
+      <Filter>gadgetlib1\gadgets\verifiers</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\set_commitment\set_commitment_gadget.tcc">
+      <Filter>gadgetlib1\gadgets\set_commitment</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\set_commitment\set_membership_proof_variable.tcc">
+      <Filter>gadgetlib1\gadgets\set_commitment</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\routing\as_waksman_routing_gadget.tcc">
+      <Filter>gadgetlib1\gadgets\routing</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\routing\benes_routing_gadget.tcc">
+      <Filter>gadgetlib1\gadgets\routing</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\pairing\pairing_checks.tcc">
+      <Filter>gadgetlib1\gadgets\pairing</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\pairing\weierstrass_final_exponentiation.tcc">
+      <Filter>gadgetlib1\gadgets\pairing</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\pairing\weierstrass_miller_loop.tcc">
+      <Filter>gadgetlib1\gadgets\pairing</Filter>
+    </None>
+    <None Include="..\..\libsnark\gadgetlib1\gadgets\pairing\weierstrass_precomputation.tcc">
+      <Filter>gadgetlib1\gadgets\pairing</Filter>
+    </None>
+    <None Include="..\..\libsnark\knowledge_commitment\kc_multiexp.tcc">
+      <Filter>knowledge_commitment</Filter>
+    </None>
+    <None Include="..\..\libsnark\knowledge_commitment\knowledge_commitment.tcc">
+      <Filter>knowledge_commitment</Filter>
+    </None>
+    <None Include="..\..\libsnark\zk_proof_systems\pcd\r1cs_pcd\compliance_predicate\compliance_predicate.tcc">
+      <Filter>zk_proof_systems\pcd\r1cs_pcd\compliance_predicate</Filter>
+    </None>
+    <None Include="..\..\libsnark\zk_proof_systems\pcd\r1cs_pcd\compliance_predicate\cp_handler.tcc">
+      <Filter>zk_proof_systems\pcd\r1cs_pcd\compliance_predicate</Filter>
+    </None>
+    <None Include="..\..\libsnark\zk_proof_systems\pcd\r1cs_pcd\r1cs_pcd_params.tcc">
+      <Filter>zk_proof_systems\pcd\r1cs_pcd</Filter>
+    </None>
+    <None Include="..\..\libsnark\zk_proof_systems\pcd\r1cs_pcd\r1cs_sp_ppzkpcd\r1cs_sp_ppzkpcd.tcc">
+      <Filter>zk_proof_systems\pcd\r1cs_pcd\r1cs_sp_ppzkpcd</Filter>
+    </None>
+    <None Include="..\..\libsnark\zk_proof_systems\pcd\r1cs_pcd\r1cs_sp_ppzkpcd\sp_pcd_circuits.tcc">
+      <Filter>zk_proof_systems\pcd\r1cs_pcd\r1cs_sp_ppzkpcd</Filter>
+    </None>
+    <None Include="..\..\libsnark\zk_proof_systems\pcd\r1cs_pcd\r1cs_mp_ppzkpcd\mp_pcd_circuits.tcc">
+      <Filter>zk_proof_systems\pcd\r1cs_pcd\r1cs_mp_ppzkpcd</Filter>
+    </None>
+    <None Include="..\..\libsnark\zk_proof_systems\pcd\r1cs_pcd\r1cs_mp_ppzkpcd\r1cs_mp_ppzkpcd.tcc">
+      <Filter>zk_proof_systems\pcd\r1cs_pcd\r1cs_mp_ppzkpcd</Filter>
+    </None>
+    <None Include="..\..\libsnark\zk_proof_systems\ppzkadsnark\r1cs_ppzkadsnark\r1cs_ppzkadsnark.tcc">
+      <Filter>zk_proof_systems\ppzkadsnark\r1cs_ppzkadsnark</Filter>
+    </None>
+    <None Include="..\..\libsnark\zk_proof_systems\ppzksnark\README.md">
+      <Filter>zk_proof_systems\ppzksnark</Filter>
+    </None>
+    <None Include="..\..\libsnark\zk_proof_systems\ppzksnark\bacs_ppzksnark\bacs_ppzksnark.tcc">
+      <Filter>zk_proof_systems\ppzksnark\bacs_ppzksnark</Filter>
+    </None>
+    <None Include="..\..\libsnark\zk_proof_systems\ppzksnark\uscs_ppzksnark\uscs_ppzksnark.tcc">
+      <Filter>zk_proof_systems\ppzksnark\uscs_ppzksnark</Filter>
+    </None>
+    <None Include="..\..\libsnark\zk_proof_systems\ppzksnark\tbcs_ppzksnark\tbcs_ppzksnark.tcc">
+      <Filter>zk_proof_systems\ppzksnark\tbcs_ppzksnark</Filter>
+    </None>
+    <None Include="..\..\libsnark\zk_proof_systems\ppzksnark\ram_ppzksnark\ram_ppzksnark.tcc">
+      <Filter>zk_proof_systems\ppzksnark\ram_ppzksnark</Filter>
+    </None>
+    <None Include="..\..\libsnark\zk_proof_systems\ppzksnark\r1cs_se_ppzksnark\r1cs_se_ppzksnark.tcc">
+      <Filter>zk_proof_systems\ppzksnark\r1cs_se_ppzksnark</Filter>
+    </None>
+    <None Include="..\..\libsnark\zk_proof_systems\ppzksnark\r1cs_ppzksnark\r1cs_ppzksnark.tcc">
+      <Filter>zk_proof_systems\ppzksnark\r1cs_ppzksnark</Filter>
+    </None>
+    <None Include="..\..\libsnark\zk_proof_systems\ppzksnark\r1cs_gg_ppzksnark\r1cs_gg_ppzksnark.tcc">
+      <Filter>zk_proof_systems\ppzksnark\r1cs_gg_ppzksnark</Filter>
+    </None>
+    <None Include="..\..\libsnark\relations\variable.tcc">
+      <Filter>relations</Filter>
+    </None>
+    <None Include="..\..\libsnark\relations\arithmetic_programs\qap\qap.tcc">
+      <Filter>relations\arithmetic_programs\qap</Filter>
+    </None>
+    <None Include="..\..\libsnark\relations\arithmetic_programs\ssp\ssp.tcc">
+      <Filter>relations\arithmetic_programs\ssp</Filter>
+    </None>
+    <None Include="..\..\libsnark\relations\arithmetic_programs\sap\sap.tcc">
+      <Filter>relations\arithmetic_programs\sap</Filter>
+    </None>
+    <None Include="..\..\libsnark\relations\circuit_satisfaction_problems\bacs\bacs.tcc">
+      <Filter>relations\circuit_satisfaction_problems\bacs</Filter>
+    </None>
+    <None Include="..\..\libsnark\relations\constraint_satisfaction_problems\uscs\uscs.tcc">
+      <Filter>relations\constraint_satisfaction_problems\uscs</Filter>
+    </None>
+    <None Include="..\..\libsnark\relations\constraint_satisfaction_problems\r1cs\r1cs.tcc">
+      <Filter>relations\constraint_satisfaction_problems\r1cs</Filter>
+    </None>
+    <None Include="..\..\libsnark\relations\ram_computations\memory\delegated_ra_memory.tcc">
+      <Filter>relations\ram_computations\memory</Filter>
+    </None>
+    <None Include="..\..\libsnark\reductions\bacs_to_r1cs\bacs_to_r1cs.tcc">
+      <Filter>reductions\bacs_to_r1cs</Filter>
+    </None>
+    <None Include="..\..\libsnark\reductions\uscs_to_ssp\uscs_to_ssp.tcc">
+      <Filter>reductions\uscs_to_ssp</Filter>
+    </None>
+    <None Include="..\..\libsnark\reductions\tbcs_to_uscs\get_tbcs_reduction.py">
+      <Filter>reductions\tbcs_to_uscs</Filter>
+    </None>
+    <None Include="..\..\libsnark\reductions\tbcs_to_uscs\tbcs_to_uscs.tcc">
+      <Filter>reductions\tbcs_to_uscs</Filter>
+    </None>
+    <None Include="..\..\libsnark\reductions\ram_to_r1cs\ram_to_r1cs.tcc">
+      <Filter>reductions\ram_to_r1cs</Filter>
+    </None>
+    <None Include="..\..\libsnark\reductions\ram_to_r1cs\gadgets\memory_checker_gadget.tcc">
+      <Filter>reductions\ram_to_r1cs\gadgets</Filter>
+    </None>
+    <None Include="..\..\libsnark\reductions\ram_to_r1cs\gadgets\ram_universal_gadget.tcc">
+      <Filter>reductions\ram_to_r1cs\gadgets</Filter>
+    </None>
+    <None Include="..\..\libsnark\reductions\ram_to_r1cs\gadgets\trace_lines.tcc">
+      <Filter>reductions\ram_to_r1cs\gadgets</Filter>
+    </None>
+    <None Include="..\..\libsnark\reductions\r1cs_to_sap\r1cs_to_sap.tcc">
+      <Filter>reductions\r1cs_to_sap</Filter>
+    </None>
+    <None Include="..\..\libsnark\reductions\r1cs_to_qap\r1cs_to_qap.tcc">
+      <Filter>reductions\r1cs_to_qap</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\libsnark\reductions\tbcs_to_uscs\tbcs_reduction.txt">
+      <Filter>reductions\tbcs_to_uscs</Filter>
+    </Text>
   </ItemGroup>
 </Project>

@@ -1,158 +1,389 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\common\double.cpp" />
-    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\common\profiling.cpp" />
-    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\common\utils.cpp" />
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\alt_bn128\alt_bn128_g1.cpp">
-      <Filter>alt_bn128</Filter>
+      <Filter>algebra\curves\alt_bn128</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\alt_bn128\alt_bn128_g2.cpp">
-      <Filter>alt_bn128</Filter>
+      <Filter>algebra\curves\alt_bn128</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\alt_bn128\alt_bn128_init.cpp">
-      <Filter>alt_bn128</Filter>
+      <Filter>algebra\curves\alt_bn128</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\alt_bn128\alt_bn128_pairing.cpp">
-      <Filter>alt_bn128</Filter>
+      <Filter>algebra\curves\alt_bn128</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\alt_bn128\alt_bn128_pp.cpp">
-      <Filter>alt_bn128</Filter>
+      <Filter>algebra\curves\alt_bn128</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\edwards\edwards_g1.cpp">
-      <Filter>edwards</Filter>
+      <Filter>algebra\curves\edwards</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\edwards\edwards_g2.cpp">
-      <Filter>edwards</Filter>
+      <Filter>algebra\curves\edwards</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\edwards\edwards_init.cpp">
-      <Filter>edwards</Filter>
+      <Filter>algebra\curves\edwards</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\edwards\edwards_pairing.cpp">
-      <Filter>edwards</Filter>
+      <Filter>algebra\curves\edwards</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\edwards\edwards_pp.cpp">
-      <Filter>edwards</Filter>
-    </ClCompile>
-    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt4\mnt4_g1.cpp">
-      <Filter>mnt</Filter>
-    </ClCompile>
-    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt4\mnt4_g2.cpp">
-      <Filter>mnt</Filter>
-    </ClCompile>
-    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt4\mnt4_init.cpp">
-      <Filter>mnt</Filter>
-    </ClCompile>
-    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt4\mnt4_pairing.cpp">
-      <Filter>mnt</Filter>
-    </ClCompile>
-    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt4\mnt4_pp.cpp">
-      <Filter>mnt</Filter>
-    </ClCompile>
-    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt6\mnt6_g1.cpp">
-      <Filter>mnt</Filter>
-    </ClCompile>
-    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt6\mnt6_g2.cpp">
-      <Filter>mnt</Filter>
-    </ClCompile>
-    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt6\mnt6_init.cpp">
-      <Filter>mnt</Filter>
-    </ClCompile>
-    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt6\mnt6_pairing.cpp">
-      <Filter>mnt</Filter>
-    </ClCompile>
-    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt6\mnt6_pp.cpp">
-      <Filter>mnt</Filter>
+      <Filter>algebra\curves\edwards</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt46_common.cpp">
-      <Filter>mnt</Filter>
+      <Filter>algebra\curves\mnt</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\bn128\bn128_g1.cpp">
-      <Filter>bn128</Filter>
+      <Filter>algebra\curves\bn128</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\bn128\bn128_g2.cpp">
-      <Filter>bn128</Filter>
+      <Filter>algebra\curves\bn128</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\bn128\bn128_gt.cpp">
-      <Filter>bn128</Filter>
+      <Filter>algebra\curves\bn128</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\bn128\bn128_init.cpp">
-      <Filter>bn128</Filter>
+      <Filter>algebra\curves\bn128</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\bn128\bn128_pairing.cpp">
-      <Filter>bn128</Filter>
+      <Filter>algebra\curves\bn128</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\bn128\bn128_pp.cpp">
-      <Filter>bn128</Filter>
+      <Filter>algebra\curves\bn128</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_g1.cpp">
-      <Filter>mcl_bn128</Filter>
+      <Filter>algebra\curves\mcl_bn128</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_g2.cpp">
-      <Filter>mcl_bn128</Filter>
+      <Filter>algebra\curves\mcl_bn128</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_gt.cpp">
-      <Filter>mcl_bn128</Filter>
+      <Filter>algebra\curves\mcl_bn128</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_init.cpp">
-      <Filter>mcl_bn128</Filter>
+      <Filter>algebra\curves\mcl_bn128</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_pairing.cpp">
-      <Filter>mcl_bn128</Filter>
+      <Filter>algebra\curves\mcl_bn128</Filter>
     </ClCompile>
     <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_pp.cpp">
-      <Filter>mcl_bn128</Filter>
+      <Filter>algebra\curves\mcl_bn128</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\common\double.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\common\profiling.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\common\utils.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt4\mnt4_g1.cpp">
+      <Filter>algebra\curves\mnt\mnt4</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt4\mnt4_g2.cpp">
+      <Filter>algebra\curves\mnt\mnt4</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt4\mnt4_init.cpp">
+      <Filter>algebra\curves\mnt\mnt4</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt4\mnt4_pairing.cpp">
+      <Filter>algebra\curves\mnt\mnt4</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt4\mnt4_pp.cpp">
+      <Filter>algebra\curves\mnt\mnt4</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt6\mnt6_g1.cpp">
+      <Filter>algebra\curves\mnt\mnt6</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt6\mnt6_g2.cpp">
+      <Filter>algebra\curves\mnt\mnt6</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt6\mnt6_init.cpp">
+      <Filter>algebra\curves\mnt\mnt6</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt6\mnt6_pairing.cpp">
+      <Filter>algebra\curves\mnt\mnt6</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mnt\mnt6\mnt6_pp.cpp">
+      <Filter>algebra\curves\mnt\mnt6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\depends\libff\libff\algebra\scalar_multiplication\multiexp_profile.cpp">
+      <Filter>algebra\scalar_multiplication</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{40096F9C-E79D-35DF-93B3-072981FFA9F7}</UniqueIdentifier>
+    <Filter Include="algebra">
+      <UniqueIdentifier>{2272f7d3-1e68-4ebc-bdfe-df5546cc1b1f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="bn128">
-      <UniqueIdentifier>{1ae05c2c-13bb-4779-b2e4-f3793fb12e3c}</UniqueIdentifier>
+    <Filter Include="common">
+      <UniqueIdentifier>{2fc245eb-f71e-4e04-a571-b3d9fec14506}</UniqueIdentifier>
     </Filter>
-    <Filter Include="alt_bn128">
+    <Filter Include="algebra\curves">
+      <UniqueIdentifier>{3cb21417-7143-430c-9d4e-fee7c69fc57a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="algebra\exponentiation">
+      <UniqueIdentifier>{ae9c58a8-253f-4ef4-9ebf-1df3fa855fd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="algebra\fields">
+      <UniqueIdentifier>{c86db904-87d7-4342-90eb-2350489abe96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="algebra\scalar_multiplication">
+      <UniqueIdentifier>{70921f6d-069d-4159-b52b-0f7e76cffc62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\default_types">
+      <UniqueIdentifier>{5581d9af-5c03-43b8-af29-50b640834e7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="algebra\curves\alt_bn128">
       <UniqueIdentifier>{59bc7b9b-2776-4a1b-8e2b-edd26db872da}</UniqueIdentifier>
     </Filter>
-    <Filter Include="edwards">
+    <Filter Include="algebra\curves\bn128">
+      <UniqueIdentifier>{1ae05c2c-13bb-4779-b2e4-f3793fb12e3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="algebra\curves\edwards">
       <UniqueIdentifier>{653fc212-c185-4296-9ff9-3d3dd5415e62}</UniqueIdentifier>
     </Filter>
-    <Filter Include="mnt">
+    <Filter Include="algebra\curves\mcl_bn128">
+      <UniqueIdentifier>{e096b87d-1982-4322-8b82-adb133d02d63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="algebra\curves\mnt">
       <UniqueIdentifier>{6cdc833d-6552-498a-b542-7db1bff5ea5e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="mcl_bn128">
-      <UniqueIdentifier>{e096b87d-1982-4322-8b82-adb133d02d63}</UniqueIdentifier>
+    <Filter Include="algebra\curves\mnt\mnt4">
+      <UniqueIdentifier>{d6585700-6866-4549-a153-0a06d69b7584}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="algebra\curves\mnt\mnt6">
+      <UniqueIdentifier>{216a8f37-d5e3-4eb3-9b72-3920b56a5ad2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\bn_utils.hpp">
-      <Filter>bn128</Filter>
+      <Filter>algebra\curves\bn128</Filter>
     </ClInclude>
     <ClInclude Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_g1.hpp">
-      <Filter>mcl_bn128</Filter>
+      <Filter>algebra\curves\mcl_bn128</Filter>
     </ClInclude>
     <ClInclude Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_g2.hpp">
-      <Filter>mcl_bn128</Filter>
+      <Filter>algebra\curves\mcl_bn128</Filter>
     </ClInclude>
     <ClInclude Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_gt.hpp">
-      <Filter>mcl_bn128</Filter>
+      <Filter>algebra\curves\mcl_bn128</Filter>
     </ClInclude>
     <ClInclude Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_init.hpp">
-      <Filter>mcl_bn128</Filter>
+      <Filter>algebra\curves\mcl_bn128</Filter>
     </ClInclude>
     <ClInclude Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_pairing.hpp">
-      <Filter>mcl_bn128</Filter>
+      <Filter>algebra\curves\mcl_bn128</Filter>
     </ClInclude>
     <ClInclude Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\mcl_bn128_pp.hpp">
-      <Filter>mcl_bn128</Filter>
+      <Filter>algebra\curves\mcl_bn128</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\common\double.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\common\profiling.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\common\rng.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\common\serialization.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\common\template_utils.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\common\utils.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\common\default_types\ec_pp.hpp">
+      <Filter>common\default_types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\curve_utils.hpp">
+      <Filter>algebra\curves</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\public_params.hpp">
+      <Filter>algebra\curves</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\alt_bn128\alt_bn128_g1.hpp">
+      <Filter>algebra\curves\alt_bn128</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\alt_bn128\alt_bn128_g2.hpp">
+      <Filter>algebra\curves\alt_bn128</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\alt_bn128\alt_bn128_init.hpp">
+      <Filter>algebra\curves\alt_bn128</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\alt_bn128\alt_bn128_pairing.hpp">
+      <Filter>algebra\curves\alt_bn128</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\alt_bn128\alt_bn128_pp.hpp">
+      <Filter>algebra\curves\alt_bn128</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\bn128\bn_utils.hpp">
+      <Filter>algebra\curves\bn128</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\bn128\bn128_g1.hpp">
+      <Filter>algebra\curves\bn128</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\bn128\bn128_g2.hpp">
+      <Filter>algebra\curves\bn128</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\bn128\bn128_gt.hpp">
+      <Filter>algebra\curves\bn128</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\bn128\bn128_init.hpp">
+      <Filter>algebra\curves\bn128</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\bn128\bn128_pairing.hpp">
+      <Filter>algebra\curves\bn128</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\bn128\bn128_pp.hpp">
+      <Filter>algebra\curves\bn128</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\edwards\edwards_g1.hpp">
+      <Filter>algebra\curves\edwards</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\edwards\edwards_g2.hpp">
+      <Filter>algebra\curves\edwards</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\edwards\edwards_init.hpp">
+      <Filter>algebra\curves\edwards</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\edwards\edwards_pairing.hpp">
+      <Filter>algebra\curves\edwards</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\edwards\edwards_pp.hpp">
+      <Filter>algebra\curves\edwards</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\mnt\mnt4\mnt4_g1.hpp">
+      <Filter>algebra\curves\mnt\mnt4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\mnt\mnt4\mnt4_g2.hpp">
+      <Filter>algebra\curves\mnt\mnt4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\mnt\mnt4\mnt4_init.hpp">
+      <Filter>algebra\curves\mnt\mnt4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\mnt\mnt4\mnt4_pairing.hpp">
+      <Filter>algebra\curves\mnt\mnt4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\mnt\mnt4\mnt4_pp.hpp">
+      <Filter>algebra\curves\mnt\mnt4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\mnt\mnt6\mnt6_g1.hpp">
+      <Filter>algebra\curves\mnt\mnt6</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\mnt\mnt6\mnt6_g2.hpp">
+      <Filter>algebra\curves\mnt\mnt6</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\mnt\mnt6\mnt6_init.hpp">
+      <Filter>algebra\curves\mnt\mnt6</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\mnt\mnt6\mnt6_pairing.hpp">
+      <Filter>algebra\curves\mnt\mnt6</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\mnt\mnt6\mnt6_pp.hpp">
+      <Filter>algebra\curves\mnt\mnt6</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\curves\mnt\mnt46_common.hpp">
+      <Filter>algebra\curves\mnt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\exponentiation\exponentiation.hpp">
+      <Filter>algebra\exponentiation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\fields\bigint.hpp">
+      <Filter>algebra\fields</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\fields\field_utils.hpp">
+      <Filter>algebra\fields</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\fields\fp.hpp">
+      <Filter>algebra\fields</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\fields\fp2.hpp">
+      <Filter>algebra\fields</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\fields\fp3.hpp">
+      <Filter>algebra\fields</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\fields\fp4.hpp">
+      <Filter>algebra\fields</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\fields\fp6_2over3.hpp">
+      <Filter>algebra\fields</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\fields\fp6_3over2.hpp">
+      <Filter>algebra\fields</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\fields\fp12_2over3over2.hpp">
+      <Filter>algebra\fields</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\scalar_multiplication\multiexp.hpp">
+      <Filter>algebra\scalar_multiplication</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\depends\libff\libff\algebra\scalar_multiplication\wnaf.hpp">
+      <Filter>algebra\scalar_multiplication</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\bn128\bn_utils.tcc">
-      <Filter>bn128</Filter>
+      <Filter>algebra\curves\bn128</Filter>
     </None>
     <None Include="$(SolutionDir)\..\depends\libff\libff\algebra\curves\mcl_bn128\bn_utils.tcc">
-      <Filter>bn128</Filter>
+      <Filter>algebra\curves\bn128</Filter>
+    </None>
+    <None Include="..\..\..\..\depends\libff\libff\common\rng.tcc">
+      <Filter>common</Filter>
+    </None>
+    <None Include="..\..\..\..\depends\libff\libff\common\serialization.tcc">
+      <Filter>common</Filter>
+    </None>
+    <None Include="..\..\..\..\depends\libff\libff\common\utils.tcc">
+      <Filter>common</Filter>
+    </None>
+    <None Include="..\..\..\..\depends\libff\libff\algebra\curves\curve_utils.tcc">
+      <Filter>algebra\curves</Filter>
+    </None>
+    <None Include="..\..\..\..\depends\libff\libff\algebra\exponentiation\exponentiation.tcc">
+      <Filter>algebra\exponentiation</Filter>
+    </None>
+    <None Include="..\..\..\..\depends\libff\libff\algebra\fields\bigint.tcc">
+      <Filter>algebra\fields</Filter>
+    </None>
+    <None Include="..\..\..\..\depends\libff\libff\algebra\fields\field_utils.tcc">
+      <Filter>algebra\fields</Filter>
+    </None>
+    <None Include="..\..\..\..\depends\libff\libff\algebra\fields\fp.tcc">
+      <Filter>algebra\fields</Filter>
+    </None>
+    <None Include="..\..\..\..\depends\libff\libff\algebra\fields\fp_aux.tcc">
+      <Filter>algebra\fields</Filter>
+    </None>
+    <None Include="..\..\..\..\depends\libff\libff\algebra\fields\fp2.tcc">
+      <Filter>algebra\fields</Filter>
+    </None>
+    <None Include="..\..\..\..\depends\libff\libff\algebra\fields\fp3.tcc">
+      <Filter>algebra\fields</Filter>
+    </None>
+    <None Include="..\..\..\..\depends\libff\libff\algebra\fields\fp4.tcc">
+      <Filter>algebra\fields</Filter>
+    </None>
+    <None Include="..\..\..\..\depends\libff\libff\algebra\fields\fp6_2over3.tcc">
+      <Filter>algebra\fields</Filter>
+    </None>
+    <None Include="..\..\..\..\depends\libff\libff\algebra\fields\fp6_3over2.tcc">
+      <Filter>algebra\fields</Filter>
+    </None>
+    <None Include="..\..\..\..\depends\libff\libff\algebra\fields\fp12_2over3over2.tcc">
+      <Filter>algebra\fields</Filter>
+    </None>
+    <None Include="..\..\..\..\depends\libff\libff\algebra\scalar_multiplication\multiexp.tcc">
+      <Filter>algebra\scalar_multiplication</Filter>
+    </None>
+    <None Include="..\..\..\..\depends\libff\libff\algebra\scalar_multiplication\wnaf.tcc">
+      <Filter>algebra\scalar_multiplication</Filter>
     </None>
   </ItemGroup>
 </Project>
