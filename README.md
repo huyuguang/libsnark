@@ -675,7 +675,7 @@ cmake -DCMAKE_INSTALL_PREFIX=../../install -DMULTICORE=ON -DUSE_PT_COMPRESSION=O
 
 The proof format will be human-readable and easy to convert to the format which matches the ethsnark requirement.
 
-The following tests passed:
+The following tests passed:  
 1, Generate vk&pk through mcl_bn128 and load through alt_bn128.  
 2, Generate proof throught mcl_bn128 and verify through alt_bn128.  
 3, For the testing circuit, the prove time relation between alt_bn128:bn128:mcl_bn128 is 30:18:14.  
