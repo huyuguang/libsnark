@@ -85,12 +85,12 @@ void XOR3_gadget<FieldT>::generate_r1cs_constraints()
     */
     if (assume_C_is_zero)
     {
-        this->pb.add_r1cs_constraint(r1cs_constraint<FieldT>(2*A, B, A + B - out), FMT(this->annotation_prefix, " implicit_tmp_equals_out"));
+        this->pb.add_r1cs_constraint(r1cs_constraint<FieldT>(A*2, B, A + B - out), FMT(this->annotation_prefix, " implicit_tmp_equals_out"));
     }
     else
     {
-        this->pb.add_r1cs_constraint(r1cs_constraint<FieldT>(2*A, B, A + B - tmp), FMT(this->annotation_prefix, " tmp"));
-        this->pb.add_r1cs_constraint(r1cs_constraint<FieldT>(2 * tmp, C, tmp + C - out), FMT(this->annotation_prefix, " out"));
+        this->pb.add_r1cs_constraint(r1cs_constraint<FieldT>(A*2, B, A + B - tmp), FMT(this->annotation_prefix, " tmp"));
+        this->pb.add_r1cs_constraint(r1cs_constraint<FieldT>(tmp*2, C, tmp + C - out), FMT(this->annotation_prefix, " out"));
     }
 }
 
@@ -272,8 +272,8 @@ void majority_gadget<FieldT>::generate_r1cs_constraints()
           aux = x + y + z - 2*result
         */
         generate_boolean_r1cs_constraint<FieldT>(this->pb, result_bits[i], FMT(this->annotation_prefix, " result_%zu", i));
-        this->pb.add_r1cs_constraint(r1cs_constraint<FieldT>(X[i] + Y[i] + Z[i] - 2 * result_bits[i],
-                                                             1 - (X[i] + Y[i] + Z[i] -  2 * result_bits[i]),
+        this->pb.add_r1cs_constraint(r1cs_constraint<FieldT>(X[i] + Y[i] + Z[i] - result_bits[i] * 2,
+                                                             1 - (X[i] + Y[i] + Z[i] -  result_bits[i] * 2),
                                                              0),
                                      FMT(this->annotation_prefix, " result_bits_%zu", i));
     }
@@ -285,7 +285,7 @@ void majority_gadget<FieldT>::generate_r1cs_witness()
 {
     for (size_t i = 0; i < 32; ++i)
     {
-        const size_t v = (this->pb.lc_val(X[i]) + this->pb.lc_val(Y[i]) + this->pb.lc_val(Z[i])).as_ulong();
+        const size_t v = (this->pb.lc_val(X[i]) + this->pb.lc_val(Y[i]) + this->pb.lc_val(Z[i])).getInt64();
         this->pb.val(result_bits[i]) = FieldT(v / 2);
     }
 
