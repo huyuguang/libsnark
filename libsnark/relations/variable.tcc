@@ -262,9 +262,19 @@ template<typename FieldT>
 FieldT linear_combination<FieldT>::evaluate(const std::vector<FieldT> &assignment) const
 {
     FieldT acc = FieldT::zero();
+    FieldT f1 = FieldT(1);
     for (auto &lt : terms)
     {
-        acc += (lt.index == 0 ? FieldT::one() : assignment[lt.index-1]) * lt.coeff;
+        if (lt.index == 0) {
+          acc += lt.coeff;
+        } else {
+          if (lt.coeff == f1) {
+            acc += assignment[lt.index-1];
+          } else {
+            acc += assignment[lt.index-1] * lt.coeff;
+          }
+        }
+        // acc += (lt.index == 0 ? FieldT::one() : assignment[lt.index-1]) * lt.coeff;
     }
     return acc;
 }
