@@ -17,7 +17,8 @@ template<typename FieldT>
 void generate_boolean_r1cs_constraint(protoboard<FieldT> &pb, const pb_linear_combination<FieldT> &lc, const std::string &annotation_prefix)
 /* forces lc to take value 0 or 1 by adding constraint lc * (1-lc) = 0 */
 {
-    pb.add_r1cs_constraint(r1cs_constraint<FieldT>(lc, 1-lc, 0),
+    //pb.add_r1cs_constraint(r1cs_constraint<FieldT>(lc, 1-lc, 0),
+    pb.add_r1cs_constraint(r1cs_constraint<FieldT>(lc, -lc + 1, 0),
                            FMT(annotation_prefix, " boolean_r1cs_constraint"));
 }
 
@@ -47,7 +48,9 @@ template<typename FieldT>
 void packing_gadget<FieldT>::generate_r1cs_witness_from_packed()
 {
     packed.evaluate(this->pb);
-    auto num_bits = this->pb.lc_val(packed).as_bigint().num_bits();
+    //auto num_bits = this->pb.lc_val(packed).as_bigint().num_bits();
+    auto num_bits = libff::bigint<FieldT::num_limbs>(this->pb.lc_val(packed).getMpz().get_mpz_t()).num_bits();
+    (void)num_bits;
     assert(num_bits <= bits.size()); // `bits` is large enough to represent this packed value
     bits.fill_with_bits_of_field_element(this->pb, this->pb.lc_val(packed));
 }
@@ -587,7 +590,8 @@ template<typename FieldT>
 void loose_multiplexing_gadget<FieldT>::generate_r1cs_witness()
 {
     /* assumes that idx can be fit in ulong; true for our purposes for now */
-    const libff::bigint<FieldT::num_limbs> valint = this->pb.val(index).as_bigint();
+    // const libff::bigint<FieldT::num_limbs> valint = this->pb.val(index).as_bigint();
+    auto valint = libff::bigint<FieldT::num_limbs>(this->pb.val(index).getMpz().get_mpz_t());
     size_t idx = valint.as_ulong();
     const libff::bigint<FieldT::num_limbs> arrsize(arr.size());
 

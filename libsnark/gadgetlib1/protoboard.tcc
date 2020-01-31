@@ -131,7 +131,8 @@ void protoboard<FieldT>::dump_variables() const
     for (size_t i = 0; i < constraint_system.num_variables; ++i)
     {
         printf("%-40s --> ", constraint_system.variable_annotations[i].c_str());
-        values[i].as_bigint().print_hex();
+        // values[i].as_bigint().print_hex();
+        libff::bigint<FieldT::num_limbs>(values[i].getMpz().get_mpz_t()).print_hex();
     }
 #endif
 }

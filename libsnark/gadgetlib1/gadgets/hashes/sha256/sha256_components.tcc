@@ -42,7 +42,7 @@ pb_linear_combination_array<FieldT> SHA256_default_IV(protoboard<FieldT> &pb)
         int iv_val = (SHA256_H[i / 32] >> (31-(i % 32))) & 1;
 
         pb_linear_combination<FieldT> iv_element;
-        iv_element.assign(pb, iv_val * ONE);
+        iv_element.assign(pb, ONE * iv_val);
         iv_element.evaluate(pb);
 
         result.emplace_back(iv_element);

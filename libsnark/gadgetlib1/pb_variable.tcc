@@ -59,7 +59,8 @@ void pb_variable_array<FieldT>::fill_with_bits(protoboard<FieldT> &pb, const lib
 template<typename FieldT>
 void pb_variable_array<FieldT>::fill_with_bits_of_field_element(protoboard<FieldT> &pb, const FieldT &r) const
 {
-    const libff::bigint<FieldT::num_limbs> rint = r.as_bigint();
+    //const libff::bigint<FieldT::num_limbs> rint = r.as_bigint();
+    const libff::bigint<FieldT::num_limbs> rint(r.getMpz().get_mpz_t());
     for (size_t i = 0; i < this->size(); ++i)
     {
         pb.val((*this)[i]) = rint.test_bit(i) ? FieldT::one() : FieldT::zero();
@@ -225,7 +226,8 @@ void pb_linear_combination_array<FieldT>::fill_with_bits(protoboard<FieldT> &pb,
 template<typename FieldT>
 void pb_linear_combination_array<FieldT>::fill_with_bits_of_field_element(protoboard<FieldT> &pb, const FieldT &r) const
 {
-    const libff::bigint<FieldT::num_limbs> rint = r.as_bigint();
+    //const libff::bigint<FieldT::num_limbs> rint = r.as_bigint();
+    libff::bigint<FieldT::num_limbs> rint(r.getMpz().get_mpz_t());
     for (size_t i = 0; i < this->size(); ++i)
     {
         pb.lc_val((*this)[i]) = rint.test_bit(i) ? FieldT::one() : FieldT::zero();
@@ -299,7 +301,8 @@ linear_combination<FieldT> pb_packing_sum(const pb_linear_combination_array<Fiel
     {
         for (auto &term : lc.terms)
         {
-            all_terms.emplace_back(twoi * term);
+            //all_terms.emplace_back(twoi * term);
+            all_terms.emplace_back(term * twoi);
         }
         twoi += twoi;
     }
