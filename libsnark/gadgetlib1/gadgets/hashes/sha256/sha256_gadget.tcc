@@ -113,15 +113,15 @@ void sha256_compression_function_gadget<FieldT>::generate_r1cs_witness()
 {
     message_schedule->generate_r1cs_witness();
 
-#ifdef DEBUG
-    printf("Input:\n");
-    for (size_t j = 0; j < 16; ++j)
-    {
-        //printf("%zx ", this->pb.val(packed_W[j]).as_ulong());
-      printf("%zx ", this->pb.val(packed_W[j]).getInt64());
-    }
-    printf("\n");
-#endif
+//#ifdef DEBUG
+//    printf("Input:\n");
+//    for (size_t j = 0; j < 16; ++j)
+//    {
+//        //printf("%zx ", this->pb.val(packed_W[j]).as_ulong());
+//      printf("%zx ", this->pb.val(packed_W[j]).getInt64());
+//    }
+//    printf("\n");
+//#endif
 
     for (size_t i = 0; i < 64; ++i)
     {
@@ -139,14 +139,14 @@ void sha256_compression_function_gadget<FieldT>::generate_r1cs_witness()
         reduce_output[i].generate_r1cs_witness();
     }
 
-#ifdef DEBUG
-    printf("Output:\n");
-    for (size_t j = 0; j < 8; ++j)
-    {
-        printf("%zx ", this->pb.val(reduced_output[j]).getInt64());
-    }
-    printf("\n");
-#endif
+//#ifdef DEBUG
+//    printf("Output:\n");
+//    for (size_t j = 0; j < 8; ++j)
+//    {
+//        printf("%zx ", this->pb.val(reduced_output[j]).getInt64());
+//    }
+//    printf("\n");
+//#endif
 }
 
 template<typename FieldT>
