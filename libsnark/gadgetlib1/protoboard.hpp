@@ -63,6 +63,7 @@ public:
     r1cs_primary_input<FieldT> primary_input() const;
     r1cs_auxiliary_input<FieldT> auxiliary_input() const;
     r1cs_constraint_system<FieldT> get_constraint_system() const;
+    r1cs_constraint_system<FieldT> const& get_constraint_system_ref() const;
 
     friend class pb_variable<FieldT>;
     friend class pb_linear_combination<FieldT>;

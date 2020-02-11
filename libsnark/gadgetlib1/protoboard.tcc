@@ -187,5 +187,10 @@ r1cs_constraint_system<FieldT> protoboard<FieldT>::get_constraint_system() const
     return constraint_system;
 }
 
+template<typename FieldT>
+r1cs_constraint_system<FieldT> const& protoboard<FieldT>::get_constraint_system_ref() const {
+  return constraint_system;
+}
+
 } // libsnark
 #endif // PROTOBOARD_TCC_
