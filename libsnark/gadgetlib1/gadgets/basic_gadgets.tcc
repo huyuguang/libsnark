@@ -13,6 +13,14 @@
 
 namespace libsnark {
 
+template <typename FieldT>
+FieldT GetFieldTwoPowN(size_t n) {
+  mpz_class two_pow_n = mpz_class(1) << n;
+  FieldT fr_2_n;
+  fr_2_n.setMpz(two_pow_n);
+  return fr_2_n;
+}
+
 template<typename FieldT>
 void generate_boolean_r1cs_constraint(protoboard<FieldT> &pb, const pb_linear_combination<FieldT> &lc, const std::string &annotation_prefix)
 /* forces lc to take value 0 or 1 by adding constraint lc * (1-lc) = 0 */
@@ -252,7 +260,7 @@ void disjunction_gadget<FieldT>::generate_r1cs_witness()
         sum += this->pb.val(inputs[i]);
     }
 
-    if (sum.is_zero())
+    if (sum == 0)//if (sum.is_zero())
     {
         this->pb.val(inv) = FieldT::zero();
         this->pb.val(output) = FieldT::zero();
@@ -419,7 +427,8 @@ void comparison_gadget<FieldT>::generate_r1cs_constraints()
 
     /* constraints for packed(alpha) = 2^n + B - A */
     pack_alpha->generate_r1cs_constraints(true);
-    this->pb.add_r1cs_constraint(r1cs_constraint<FieldT>(1, (FieldT(2)^n) + B - A, alpha_packed), FMT(this->annotation_prefix, " main_constraint"));
+    this->pb.add_r1cs_constraint(r1cs_constraint<FieldT>(1, B - A + GetFieldTwoPowN<FieldT>(n), alpha_packed), FMT(this->annotation_prefix, " main_constraint"));
+    //this->pb.add_r1cs_constraint(r1cs_constraint<FieldT>(1, (FieldT(2)^n) + B - A, alpha_packed), FMT(this->annotation_prefix, " main_constraint"));
 
     /* compute result */
     all_zeros_test->generate_r1cs_constraints();
@@ -433,8 +442,10 @@ void comparison_gadget<FieldT>::generate_r1cs_witness()
     A.evaluate(this->pb);
     B.evaluate(this->pb);
 
-    /* unpack 2^n + B - A into alpha_packed */
-    this->pb.val(alpha_packed) = (FieldT(2)^n) + this->pb.lc_val(B) - this->pb.lc_val(A);
+    /* unpack 2^n + B - A into alpha_packed */    
+    this->pb.val(alpha_packed) = GetFieldTwoPowN<FieldT>(n) + this->pb.lc_val(B) - this->pb.lc_val(A);
+    //this->pb.val(alpha_packed) = (FieldT(2)^n) + this->pb.lc_val(B) - this->pb.lc_val(A);
+
     pack_alpha->generate_r1cs_witness_from_packed();
 
     /* compute result */
@@ -491,7 +502,7 @@ void inner_product_gadget<FieldT>::generate_r1cs_constraints()
     {
         this->pb.add_r1cs_constraint(
             r1cs_constraint<FieldT>(A[i], B[i],
-                                    (i == A.size()-1 ? result : S[i]) + (i == 0 ? 0 * ONE : -S[i-1])),
+                                    (i == A.size()-1 ? result : S[i]) + (i == 0 ? ONE * 0 : -S[i-1])),
             FMT(this->annotation_prefix, " S_%zu", i));
     }
 }
