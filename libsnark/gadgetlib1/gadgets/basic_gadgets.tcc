@@ -10,15 +10,21 @@
 
 #include <libff/common/profiling.hpp>
 #include <libff/common/utils.hpp>
+#include <gmp.h>
+#include <gmpxx.h>
 
 namespace libsnark {
 
 template <typename FieldT>
 FieldT GetFieldTwoPowN(size_t n) {
+#ifndef USE_MCL_FR_DIRECTLY
+  return (FieldT(2) ^ n);
+#else
   mpz_class two_pow_n = mpz_class(1) << n;
   FieldT fr_2_n;
   fr_2_n.setMpz(two_pow_n);
   return fr_2_n;
+#endif
 }
 
 template<typename FieldT>
@@ -56,8 +62,11 @@ template<typename FieldT>
 void packing_gadget<FieldT>::generate_r1cs_witness_from_packed()
 {
     packed.evaluate(this->pb);
-    //auto num_bits = this->pb.lc_val(packed).as_bigint().num_bits();
+#ifndef USE_MCL_FR_DIRECTLY
+    auto num_bits = this->pb.lc_val(packed).as_bigint().num_bits();
+#else
     auto num_bits = libff::bigint<FieldT::num_limbs>(this->pb.lc_val(packed).getMpz().get_mpz_t()).num_bits();
+#endif
     (void)num_bits;
     assert(num_bits <= bits.size()); // `bits` is large enough to represent this packed value
     bits.fill_with_bits_of_field_element(this->pb, this->pb.lc_val(packed));
@@ -601,8 +610,11 @@ template<typename FieldT>
 void loose_multiplexing_gadget<FieldT>::generate_r1cs_witness()
 {
     /* assumes that idx can be fit in ulong; true for our purposes for now */
-    // const libff::bigint<FieldT::num_limbs> valint = this->pb.val(index).as_bigint();
+#ifndef USE_MCL_FR_DIRECTLY
+    const libff::bigint<FieldT::num_limbs> valint = this->pb.val(index).as_bigint();
+#else
     auto valint = libff::bigint<FieldT::num_limbs>(this->pb.val(index).getMpz().get_mpz_t());
+#endif
     size_t idx = valint.as_ulong();
     const libff::bigint<FieldT::num_limbs> arrsize(arr.size());
 

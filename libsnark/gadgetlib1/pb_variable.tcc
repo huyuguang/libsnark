@@ -59,8 +59,11 @@ void pb_variable_array<FieldT>::fill_with_bits(protoboard<FieldT> &pb, const lib
 template<typename FieldT>
 void pb_variable_array<FieldT>::fill_with_bits_of_field_element(protoboard<FieldT> &pb, const FieldT &r) const
 {
-    //const libff::bigint<FieldT::num_limbs> rint = r.as_bigint();
+#ifndef USE_MCL_FR_DIRECTLY
+    const libff::bigint<FieldT::num_limbs> rint = r.as_bigint();
+#else
     const libff::bigint<FieldT::num_limbs> rint(r.getMpz().get_mpz_t());
+#endif
     for (size_t i = 0; i < this->size(); ++i)
     {
         pb.val((*this)[i]) = rint.test_bit(i) ? FieldT::one() : FieldT::zero();
@@ -226,8 +229,11 @@ void pb_linear_combination_array<FieldT>::fill_with_bits(protoboard<FieldT> &pb,
 template<typename FieldT>
 void pb_linear_combination_array<FieldT>::fill_with_bits_of_field_element(protoboard<FieldT> &pb, const FieldT &r) const
 {
-    //const libff::bigint<FieldT::num_limbs> rint = r.as_bigint();
+#ifndef USE_MCL_FR_DIRECTLY
+    const libff::bigint<FieldT::num_limbs> rint = r.as_bigint();
+#else
     libff::bigint<FieldT::num_limbs> rint(r.getMpz().get_mpz_t());
+#endif
     for (size_t i = 0; i < this->size(); ++i)
     {
         pb.lc_val((*this)[i]) = rint.test_bit(i) ? FieldT::one() : FieldT::zero();
