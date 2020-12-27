@@ -239,7 +239,7 @@ void test_benes_routing_gadget(const size_t num_packets, const size_t packet_siz
 
     printf("num_constraints = %zu, num_variables = %zu\n",
            pb.num_constraints(),
-           pb.constraint_system.num_variables);
+           pb.get_constraint_system().num_variables());
 }
 
 } // libsnark

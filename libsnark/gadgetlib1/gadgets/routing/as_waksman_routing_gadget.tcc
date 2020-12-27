@@ -241,7 +241,12 @@ void as_waksman_routing_gadget<FieldT>::generate_r1cs_witness(const integer_perm
         unpack_outputs[packet_idx].generate_r1cs_witness_from_packed();
     }
 }
-
+/// <summary>
+/// 
+/// </summary>
+/// <typeparam name="FieldT"></typeparam>
+/// <param name="num_packets"></param>
+/// <param name="packet_size"></param>
 template<typename FieldT>
 void test_as_waksman_routing_gadget(const size_t num_packets, const size_t packet_size)
 {
@@ -287,7 +292,7 @@ void test_as_waksman_routing_gadget(const size_t num_packets, const size_t packe
 
     printf("num_constraints = %zu, num_variables = %zu\n",
            pb.num_constraints(),
-           pb.constraint_system.num_variables);
+           pb.get_constraint_system().num_variables());
 }
 
 } // libsnark

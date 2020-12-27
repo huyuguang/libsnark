@@ -101,7 +101,7 @@ void construct_as_waksman_inner(const size_t left,
             neighbors[right][packet_idx].first = neighbors[right][packet_idx].second = rhs_dests[packet_idx - lo];
         }
 
-        std::vector<size_t> new_rhs_dests(subnetwork_size, -1);
+        std::vector<size_t> new_rhs_dests(subnetwork_size, (size_t)(-1));
         for (size_t packet_idx = lo; packet_idx <= hi; ++packet_idx)
         {
             new_rhs_dests[packet_idx-lo] = packet_idx;
@@ -121,7 +121,7 @@ void construct_as_waksman_inner(const size_t left,
          * Networks of size sz > 2 are handled by adding two columns of
          * switches alongside the network and recursing.
          */
-        std::vector<size_t> new_rhs_dests(subnetwork_size, -1);
+        std::vector<size_t> new_rhs_dests(subnetwork_size, (size_t)(-1));
 
         /**
          * This adds floor(sz/2) switches alongside the network.
@@ -178,7 +178,7 @@ as_waksman_topology generate_as_waksman_topology(const size_t num_packets)
     assert(num_packets > 1);
     const size_t width = as_waksman_num_columns(num_packets);
 
-    as_waksman_topology neighbors(width, std::vector<std::pair<size_t, size_t> >(num_packets, std::make_pair<size_t, size_t>(-1, -1)));
+    as_waksman_topology neighbors(width, std::vector<std::pair<size_t, size_t> >(num_packets, std::make_pair<size_t, size_t>((size_t)(-1), (size_t)(-1))));
 
     std::vector<size_t> rhs_dests(num_packets);
     for (size_t packet_idx = 0; packet_idx < num_packets; ++packet_idx)

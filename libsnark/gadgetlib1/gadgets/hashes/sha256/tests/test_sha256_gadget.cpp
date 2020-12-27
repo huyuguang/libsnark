@@ -40,9 +40,15 @@ void test_two_to_one()
     assert(pb.is_satisfied());
 }
 
+#include <libsnark/gadgetlib1/gadgets/routing/as_waksman_routing_gadget.hpp>
+#include <libsnark/gadgetlib1/gadgets/routing/benes_routing_gadget.hpp>
+
 int main(void)
 {
     libff::start_profiling();
     libff::default_ec_pp::init_public_params();
     test_two_to_one<libff::Fr<libff::default_ec_pp> >();
+
+    test_as_waksman_routing_gadget<libff::Fr<libff::default_ec_pp>>(16, 4);
+    test_benes_routing_gadget<libff::Fr<libff::default_ec_pp>>(16, 4); 
 }
